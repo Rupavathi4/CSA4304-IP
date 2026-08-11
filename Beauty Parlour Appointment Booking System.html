@@ -1,0 +1,1488 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glow & Grace Beauty Studio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff9fc;
+    color:#333;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:linear-gradient(135deg,#8e3d70,#d86ca2);
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ffd7eb;
+}
+
+nav{
+    display:flex;
+    gap:24px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:#ffd7eb;
+}
+
+.book-header{
+    border:none;
+    background:white;
+    color:#8e3d70;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.book-header:hover{
+    background:#ffeaf4;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:500px;
+    padding:70px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(135deg,#fff0f7,#f8e3ef);
+}
+
+.hero-content{
+    width:55%;
+}
+
+.hero-content h1{
+    font-size:52px;
+    line-height:1.15;
+    color:#7b315f;
+    margin-bottom:20px;
+}
+
+.hero-content h1 span{
+    color:#d85c99;
+}
+
+.hero-content p{
+    color:#666;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    border:none;
+    background:#b83f7d;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(184,63,125,0.25);
+}
+
+.hero-btn:hover{
+    background:#8e3d70;
+}
+
+.hero-image{
+    width:40%;
+    text-align:center;
+    font-size:180px;
+}
+
+/* ================= COMMON ================= */
+
+.section{
+    padding:65px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:#7b315f;
+    font-size:34px;
+}
+
+.section-title p{
+    color:#777;
+    margin-top:8px;
+}
+
+/* ================= SERVICES ================= */
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.service-card{
+    background:white;
+    border-radius:18px;
+    padding:30px 22px;
+    text-align:center;
+    border:1px solid #f2d8e6;
+    box-shadow:0 8px 25px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(184,63,125,0.16);
+}
+
+.service-icon{
+    width:80px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 18px;
+    background:#fff0f7;
+    border-radius:50%;
+    font-size:40px;
+}
+
+.service-card h3{
+    color:#7b315f;
+    margin-bottom:10px;
+}
+
+.service-card p{
+    color:#777;
+    font-size:14px;
+    line-height:1.5;
+    min-height:43px;
+}
+
+.service-price{
+    color:#c33f7c;
+    font-size:21px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.select-service{
+    border:none;
+    background:#b83f7d;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.select-service:hover{
+    background:#8e3d70;
+}
+
+/* ================= OFFERS ================= */
+
+.offers{
+    background:linear-gradient(135deg,#7b315f,#c5528c);
+    color:white;
+    padding:50px 7%;
+}
+
+.offer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.offer{
+    background:rgba(255,255,255,0.15);
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.25);
+}
+
+.offer h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.offer p{
+    line-height:1.5;
+    color:#ffeaf4;
+}
+
+/* ================= TEAM ================= */
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.team-card{
+    background:white;
+    text-align:center;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.07);
+}
+
+.team-photo{
+    width:110px;
+    height:110px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#f9dce9;
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.team-card h3{
+    color:#7b315f;
+    margin-bottom:6px;
+}
+
+.team-card p{
+    color:#888;
+    font-size:14px;
+}
+
+/* ================= BOOKING ================= */
+
+.booking-section{
+    background:#fff0f7;
+}
+
+.booking-container{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    color:#555;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#c5528c;
+}
+
+.confirm-btn{
+    width:100%;
+    border:none;
+    background:#b83f7d;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.confirm-btn:hover{
+    background:#8e3d70;
+}
+
+/* ================= APPOINTMENT DISPLAY ================= */
+
+.appointment-box{
+    max-width:850px;
+    margin:30px auto 0;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.07);
+}
+
+.appointment-box h3{
+    color:#7b315f;
+    margin-bottom:15px;
+}
+
+.appointment-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.detail{
+    background:#fff5f9;
+    padding:12px;
+    border-radius:8px;
+}
+
+.detail strong{
+    color:#7b315f;
+}
+
+/* ================= REVIEWS ================= */
+
+.review-section{
+    background:white;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:22px;
+}
+
+.review{
+    background:#fff7fa;
+    padding:25px;
+    border-radius:16px;
+    border:1px solid #f4dbe7;
+}
+
+.stars{
+    color:#f2a900;
+    margin-bottom:12px;
+}
+
+.review p{
+    color:#666;
+    line-height:1.6;
+}
+
+.review h4{
+    margin-top:15px;
+    color:#7b315f;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:3000;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:450px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.success{
+    font-size:70px;
+}
+
+.modal-content h2{
+    color:#7b315f;
+    margin:15px 0;
+}
+
+.close-btn{
+    border:none;
+    background:#b83f7d;
+    color:white;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#351625;
+    color:white;
+    text-align:center;
+    padding:40px 7%;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#ddd;
+    margin:6px;
+}
+
+.social{
+    font-size:25px;
+    margin:15px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .hero-image{
+        width:100%;
+        font-size:130px;
+        margin-top:25px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .appointment-details{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        ✨ Glow <span>& Grace</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#team">Our Team</a>
+        <a href="#booking">Appointment</a>
+        <a href="#reviews">Reviews</a>
+    </nav>
+
+    <button class="book-header" onclick="goToBooking()">
+        Book Now
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Feel Beautiful.<br>
+            <span>Look Confident.</span>
+        </h1>
+
+        <p>
+            Welcome to Glow & Grace Beauty Studio.
+            Enjoy professional beauty services, relaxing
+            treatments and personalized care from our
+            experienced beauty specialists.
+        </p>
+
+        <button class="hero-btn" onclick="goToBooking()">
+            💖 Book Your Appointment
+        </button>
+
+    </div>
+
+    <div class="hero-image">
+        💇‍♀️
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section" id="services">
+
+    <div class="section-title">
+
+        <h2>Our Beauty Services</h2>
+
+        <p>
+            Professional treatments designed just for you
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                💇‍♀️
+            </div>
+
+            <h3>Hair Styling</h3>
+
+            <p>
+                Haircuts, styling and professional
+                hair treatments.
+            </p>
+
+            <div class="service-price">
+                ₹499
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Hair Styling')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                💆‍♀️
+            </div>
+
+            <h3>Facial</h3>
+
+            <p>
+                Relaxing facial treatments for
+                glowing and healthy skin.
+            </p>
+
+            <div class="service-price">
+                ₹799
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Facial')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                💅
+            </div>
+
+            <h3>Manicure</h3>
+
+            <p>
+                Nail care and relaxing hand
+                beauty treatment.
+            </p>
+
+            <div class="service-price">
+                ₹399
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Manicure')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🦶
+            </div>
+
+            <h3>Pedicure</h3>
+
+            <p>
+                Complete foot and nail care
+                treatment.
+            </p>
+
+            <div class="service-price">
+                ₹449
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Pedicure')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                💄
+            </div>
+
+            <h3>Makeup</h3>
+
+            <p>
+                Professional makeup for parties,
+                weddings and special events.
+            </p>
+
+            <div class="service-price">
+                ₹1,499
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Makeup')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🧖‍♀️
+            </div>
+
+            <h3>Spa Treatment</h3>
+
+            <p>
+                Relax your body with our premium
+                spa treatments.
+            </p>
+
+            <div class="service-price">
+                ₹999
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Spa Treatment')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                👰
+            </div>
+
+            <h3>Bridal Package</h3>
+
+            <p>
+                Complete bridal beauty package
+                for your special day.
+            </p>
+
+            <div class="service-price">
+                ₹4,999
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Bridal Package')">
+                Select Service
+            </button>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                ✨
+            </div>
+
+            <h3>Threading</h3>
+
+            <p>
+                Professional eyebrow and facial
+                threading service.
+            </p>
+
+            <div class="service-price">
+                ₹149
+            </div>
+
+            <button class="select-service"
+                    onclick="selectService('Threading')">
+                Select Service
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OFFERS ================= -->
+
+<section class="offers">
+
+    <div class="section-title" style="color:white;">
+
+        <h2 style="color:white;">
+            Special Offers
+        </h2>
+
+        <p style="color:#ffeaf4;">
+            Treat yourself without breaking the bank
+        </p>
+
+    </div>
+
+
+    <div class="offer-grid">
+
+        <div class="offer">
+
+            <h3>🌸 First Visit</h3>
+
+            <p>
+                Get 20% OFF on your first
+                beauty service.
+            </p>
+
+        </div>
+
+
+        <div class="offer">
+
+            <h3>💖 Bridal Special</h3>
+
+            <p>
+                Book our bridal package and
+                receive a free facial.
+            </p>
+
+        </div>
+
+
+        <div class="offer">
+
+            <h3>🎁 Weekend Offer</h3>
+
+            <p>
+                Get a free manicure with
+                selected weekend packages.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TEAM ================= -->
+
+<section class="section" id="team">
+
+    <div class="section-title">
+
+        <h2>Meet Our Beauty Experts</h2>
+
+        <p>
+            Experienced professionals who care about your beauty
+        </p>
+
+    </div>
+
+
+    <div class="team-grid">
+
+
+        <div class="team-card">
+
+            <div class="team-photo">
+                👩‍🦰
+            </div>
+
+            <h3>Priya Sharma</h3>
+
+            <p>
+                Senior Hair Stylist
+            </p>
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="team-photo">
+                👩‍🦱
+            </div>
+
+            <h3>Ananya Rao</h3>
+
+            <p>
+                Makeup Artist
+            </p>
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="team-photo">
+                👩
+            </div>
+
+            <h3>Meera Patel</h3>
+
+            <p>
+                Skin Care Specialist
+            </p>
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="team-photo">
+                👩‍🦳
+            </div>
+
+            <h3>Kavya Singh</h3>
+
+            <p>
+                Nail & Spa Specialist
+            </p>
+
+            <div class="stars">
+                ⭐⭐⭐⭐☆
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="section booking-section" id="booking">
+
+    <div class="section-title">
+
+        <h2>📅 Book an Appointment</h2>
+
+        <p>
+            Choose your service and preferred appointment time
+        </p>
+
+    </div>
+
+
+    <div class="booking-container">
+
+        <form onsubmit="bookAppointment(event)">
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10-digit mobile number"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Select Service
+                    </label>
+
+                    <select id="service" required>
+
+                        <option value="">
+                            Choose a service
+                        </option>
+
+                        <option>Hair Styling</option>
+                        <option>Facial</option>
+                        <option>Manicure</option>
+                        <option>Pedicure</option>
+                        <option>Makeup</option>
+                        <option>Spa Treatment</option>
+                        <option>Bridal Package</option>
+                        <option>Threading</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Appointment Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Time
+                    </label>
+
+                    <select id="time" required>
+
+                        <option value="">
+                            Select time
+                        </option>
+
+                        <option>09:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>02:00 PM</option>
+                        <option>03:00 PM</option>
+                        <option>04:00 PM</option>
+                        <option>05:00 PM</option>
+                        <option>06:00 PM</option>
+                        <option>07:00 PM</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Additional Requirements
+                </label>
+
+                <textarea
+                    id="notes"
+                    rows="4"
+                    placeholder="Tell us if you have any special requirements..."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="confirm-btn">
+
+                💖 Confirm Appointment
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- APPOINTMENT DISPLAY -->
+
+    <div
+        class="appointment-box"
+        id="appointmentBox"
+        style="display:none;">
+
+        <h3>
+            📋 Your Appointment Details
+        </h3>
+
+        <div class="appointment-details">
+
+            <div class="detail">
+                <strong>Name:</strong>
+                <span id="displayName"></span>
+            </div>
+
+            <div class="detail">
+                <strong>Phone:</strong>
+                <span id="displayPhone"></span>
+            </div>
+
+            <div class="detail">
+                <strong>Service:</strong>
+                <span id="displayService"></span>
+            </div>
+
+            <div class="detail">
+                <strong>Date:</strong>
+                <span id="displayDate"></span>
+            </div>
+
+            <div class="detail">
+                <strong>Time:</strong>
+                <span id="displayTime"></span>
+            </div>
+
+            <div class="detail">
+                <strong>Status:</strong>
+                <span style="color:green;font-weight:bold;">
+                    Confirmed ✓
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="section review-section" id="reviews">
+
+    <div class="section-title">
+
+        <h2>What Our Customers Say</h2>
+
+        <p>
+            Real experiences from our happy customers
+        </p>
+
+    </div>
+
+
+    <div class="review-grid">
+
+
+        <div class="review">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "The staff were very friendly and professional.
+                I loved my hairstyle and the overall experience
+                was amazing."
+            </p>
+
+            <h4>
+                — Sneha
+            </h4>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "I booked the bridal package and everything
+                was perfectly organized. Highly recommended!"
+            </p>
+
+            <h4>
+                — Divya
+            </h4>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ⭐⭐⭐⭐☆
+            </div>
+
+            <p>
+                "Very clean salon and excellent service.
+                The facial was relaxing and my skin looked great."
+            </p>
+
+            <h4>
+                — Aishwarya
+            </h4>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="successModal">
+
+    <div class="modal-content">
+
+        <div class="success">
+            🎉
+        </div>
+
+        <h2>
+            Appointment Confirmed!
+        </h2>
+
+        <p id="successMessage">
+            Your appointment has been successfully booked.
+        </p>
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        ✨ Glow & Grace Beauty Studio
+    </h2>
+
+    <p>
+        Beauty • Confidence • Care
+    </p>
+
+    <p>
+        📞 +91 98765 43210
+    </p>
+
+    <p>
+        ✉️ hello@glowandgrace.com
+    </p>
+
+    <p>
+        📍 Chennai, Tamil Nadu
+    </p>
+
+    <div class="social">
+        📸 &nbsp; 📘 &nbsp; 💬
+    </div>
+
+    <p style="margin-top:20px;">
+        © 2026 Glow & Grace Beauty Studio. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* GO TO BOOKING */
+
+function goToBooking(){
+
+    document
+        .getElementById("booking")
+        .scrollIntoView();
+
+}
+
+
+/* SELECT SERVICE */
+
+function selectService(serviceName){
+
+    document
+        .getElementById("service")
+        .value = serviceName;
+
+    goToBooking();
+
+}
+
+
+/* BOOK APPOINTMENT */
+
+function bookAppointment(event){
+
+    event.preventDefault();
+
+
+    let name =
+        document.getElementById("customerName").value;
+
+    let phone =
+        document.getElementById("phone").value;
+
+    let service =
+        document.getElementById("service").value;
+
+    let date =
+        document.getElementById("date").value;
+
+    let time =
+        document.getElementById("time").value;
+
+
+    /* DISPLAY APPOINTMENT */
+
+    document.getElementById("displayName").innerText =
+        name;
+
+    document.getElementById("displayPhone").innerText =
+        phone;
+
+    document.getElementById("displayService").innerText =
+        service;
+
+    document.getElementById("displayDate").innerText =
+        date;
+
+    document.getElementById("displayTime").innerText =
+        time;
+
+
+    document.getElementById("appointmentBox")
+        .style.display = "block";
+
+
+    /* SUCCESS MESSAGE */
+
+    document.getElementById("successMessage").innerText =
+
+        "Thank you, " + name +
+        "! Your " + service +
+        " appointment has been confirmed for " +
+        date + " at " + time + ".";
+
+
+    document.getElementById("successModal")
+        .style.display = "flex";
+
+
+    /* SCROLL TO APPOINTMENT */
+
+    setTimeout(function(){
+
+        document.getElementById("appointmentBox")
+            .scrollIntoView();
+
+    },500);
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    document.getElementById("successModal")
+        .style.display = "none";
+
+}
+
+
+/* CLOSE MODAL OUTSIDE */
+
+window.onclick = function(event){
+
+    let modal =
+        document.getElementById("successModal");
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+};
+
+
+/* SET MINIMUM DATE */
+
+let today =
+    new Date().toISOString().split("T")[0];
+
+document
+    .getElementById("date")
+    .setAttribute("min",today);
+
+</script>
+
+</body>
+</html>
+```

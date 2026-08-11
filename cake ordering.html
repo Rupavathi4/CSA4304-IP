@@ -1,0 +1,1636 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sweet Bliss - Online Cake Ordering</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff8fb;
+    color:#333;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:linear-gradient(135deg,#ff4f87,#ff8fab);
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#fff2f6;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:#ffe3ec;
+}
+
+.cart-button{
+    background:white;
+    color:#ff3f78;
+    border:none;
+    padding:10px 18px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cart-button:hover{
+    background:#fff0f5;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:480px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:60px 8%;
+    background:linear-gradient(120deg,#fff0f5,#ffe1eb);
+}
+
+.hero-text{
+    width:50%;
+}
+
+.hero-text h1{
+    font-size:52px;
+    color:#d92761;
+    margin-bottom:18px;
+}
+
+.hero-text h1 span{
+    color:#ff6f9c;
+}
+
+.hero-text p{
+    font-size:18px;
+    color:#666;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.shop-btn{
+    background:#ff3976;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(255,57,118,0.3);
+}
+
+.shop-btn:hover{
+    background:#d92761;
+    transform:translateY(-2px);
+}
+
+.hero-cake{
+    width:40%;
+    text-align:center;
+    font-size:190px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:60px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:34px;
+    color:#d92761;
+}
+
+.section-title p{
+    color:#777;
+    margin-top:8px;
+}
+
+/* ================= SEARCH ================= */
+
+.search-area{
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.search-area input{
+    width:500px;
+    padding:15px 20px;
+    border:2px solid #ffd0df;
+    border-radius:30px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-area input:focus{
+    border-color:#ff4f87;
+}
+
+/* ================= FILTER ================= */
+
+.filters{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:35px;
+}
+
+.filter-btn{
+    border:1px solid #ff7fa5;
+    background:white;
+    color:#d92761;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:#ff4f87;
+    color:white;
+}
+
+/* ================= CAKE GRID ================= */
+
+.cake-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.cake-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+    border:1px solid #ffe1eb;
+}
+
+.cake-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(255,79,135,0.2);
+}
+
+.cake-image{
+    height:180px;
+    background:linear-gradient(135deg,#ffe5ed,#fff4f7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+}
+
+.cake-info{
+    padding:20px;
+}
+
+.cake-info h3{
+    color:#333;
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.cake-info p{
+    color:#777;
+    font-size:14px;
+    line-height:1.5;
+    min-height:42px;
+}
+
+.rating{
+    color:#ffb400;
+    margin:10px 0;
+}
+
+.price{
+    color:#e52e65;
+    font-size:21px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.add-btn{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    background:#ff4f87;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-btn:hover{
+    background:#d92761;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    background:#fff0f5;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:45px 7%;
+}
+
+.feature{
+    text-align:center;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+}
+
+.feature-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.feature h3{
+    color:#d92761;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#777;
+    font-size:14px;
+}
+
+/* ================= CART ================= */
+
+.cart-section{
+    background:#fff;
+}
+
+.cart-box{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item-info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.cart-item-emoji{
+    font-size:40px;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.quantity button{
+    border:none;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:#ff4f87;
+    color:white;
+    cursor:pointer;
+}
+
+.remove-btn{
+    background:#ffebf1;
+    color:#d92761;
+    border:none;
+    padding:7px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.cart-total{
+    text-align:right;
+    margin-top:25px;
+}
+
+.cart-total h2{
+    color:#d92761;
+}
+
+/* ================= ORDER FORM ================= */
+
+.order-section{
+    background:linear-gradient(135deg,#fff0f5,#ffe5ee);
+}
+
+.order-form{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
+    color:#555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#ff4f87;
+}
+
+.place-order{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#ff3976;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.place-order:hover{
+    background:#d92761;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:2000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:450px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.success-icon{
+    font-size:70px;
+}
+
+.modal-content h2{
+    color:#d92761;
+    margin:15px 0;
+}
+
+.close-btn{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ff4f87;
+    border:none;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#3b1827;
+    color:white;
+    padding:35px 7%;
+    text-align:center;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#ddd;
+    margin:6px;
+}
+
+.social{
+    margin-top:15px;
+    font-size:25px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text{
+        width:100%;
+    }
+
+    .hero-text h1{
+        font-size:38px;
+    }
+
+    .hero-cake{
+        width:100%;
+        font-size:130px;
+        margin-top:30px;
+    }
+
+    .cart-item{
+        flex-direction:column;
+        gap:15px;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🍰 Sweet <span>Bliss</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cakes">Cakes</a>
+        <a href="#features">Services</a>
+        <a href="#order">Order</a>
+    </nav>
+
+    <button class="cart-button" onclick="goToCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>
+            Fresh Cakes,
+            <span>Happy Moments!</span>
+        </h1>
+
+        <p>
+            Order delicious freshly baked cakes online.
+            Choose your favourite flavour, add it to your cart,
+            and get it delivered to your doorstep.
+        </p>
+
+        <button class="shop-btn" onclick="goToCakes()">
+            🍰 Order Your Cake
+        </button>
+
+    </div>
+
+    <div class="hero-cake">
+        🎂
+    </div>
+
+</section>
+
+
+<!-- ================= CAKES ================= -->
+
+<section class="section" id="cakes">
+
+    <div class="section-title">
+
+        <h2>Our Delicious Cakes</h2>
+
+        <p>
+            Choose from our freshly baked collection
+        </p>
+
+    </div>
+
+
+    <div class="search-area">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search your favourite cake..."
+            onkeyup="searchCake()"
+        >
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter-btn active"
+                onclick="filterCake('all',this)">
+            All
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterCake('chocolate',this)">
+            Chocolate
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterCake('fruit',this)">
+            Fruit
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterCake('birthday',this)">
+            Birthday
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterCake('special',this)">
+            Special
+        </button>
+
+    </div>
+
+
+    <div class="cake-grid" id="cakeGrid">
+
+
+        <!-- CAKE 1 -->
+
+        <div class="cake-card"
+             data-category="chocolate"
+             data-name="Chocolate Truffle Cake">
+
+            <div class="cake-image">
+                🍫🎂
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Chocolate Truffle Cake</h3>
+
+                <p>
+                    Rich chocolate cake with smooth
+                    chocolate truffle cream.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹599
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Chocolate Truffle Cake',599,'🍫🎂')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 2 -->
+
+        <div class="cake-card"
+             data-category="fruit"
+             data-name="Strawberry Cake">
+
+            <div class="cake-image">
+                🍓🎂
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Strawberry Cake</h3>
+
+                <p>
+                    Fresh strawberry cake with
+                    creamy vanilla frosting.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹649
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Strawberry Cake',649,'🍓🎂')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 3 -->
+
+        <div class="cake-card"
+             data-category="birthday"
+             data-name="Birthday Celebration Cake">
+
+            <div class="cake-image">
+                🎂🎉
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Birthday Celebration Cake</h3>
+
+                <p>
+                    Beautiful cake specially designed
+                    for birthday celebrations.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹799
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Birthday Celebration Cake',799,'🎂🎉')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 4 -->
+
+        <div class="cake-card"
+             data-category="chocolate"
+             data-name="Black Forest Cake">
+
+            <div class="cake-image">
+                🍒🍫
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Black Forest Cake</h3>
+
+                <p>
+                    Classic chocolate cake with cherries
+                    and whipped cream.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹699
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Black Forest Cake',699,'🍒🍫')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 5 -->
+
+        <div class="cake-card"
+             data-category="fruit"
+             data-name="Mango Cake">
+
+            <div class="cake-image">
+                🥭🎂
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Mango Cake</h3>
+
+                <p>
+                    Delicious seasonal mango cake
+                    with fresh mango cream.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="price">
+                    ₹599
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Mango Cake',599,'🥭🎂')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 6 -->
+
+        <div class="cake-card"
+             data-category="special"
+             data-name="Red Velvet Cake">
+
+            <div class="cake-image">
+                ❤️🎂
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Red Velvet Cake</h3>
+
+                <p>
+                    Soft red velvet sponge with
+                    delicious cream cheese frosting.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹899
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Red Velvet Cake',899,'❤️🎂')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 7 -->
+
+        <div class="cake-card"
+             data-category="special"
+             data-name="Black and White Cake">
+
+            <div class="cake-image">
+                🖤🤍🎂
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Black & White Cake</h3>
+
+                <p>
+                    Premium layered cake with
+                    chocolate and vanilla flavours.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹749
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Black & White Cake',749,'🖤🤍🎂')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAKE 8 -->
+
+        <div class="cake-card"
+             data-category="birthday"
+             data-name="Kids Birthday Cake">
+
+            <div class="cake-image">
+                🎈🎂🎁
+            </div>
+
+            <div class="cake-info">
+
+                <h3>Kids Birthday Cake</h3>
+
+                <p>
+                    Colourful and fun cake perfect
+                    for kids' birthday parties.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹699
+                </div>
+
+                <button class="add-btn"
+                        onclick="addToCart('Kids Birthday Cake',699,'🎈🎂🎁')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🚚
+        </div>
+
+        <h3>Fast Delivery</h3>
+
+        <p>
+            Fresh cakes delivered quickly
+            to your doorstep.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🧁
+        </div>
+
+        <h3>Freshly Baked</h3>
+
+        <p>
+            Every cake is prepared fresh
+            using quality ingredients.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            💳
+        </div>
+
+        <h3>Secure Payment</h3>
+
+        <p>
+            Safe and convenient payment
+            options for customers.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            ❤️
+        </div>
+
+        <h3>Made With Love</h3>
+
+        <p>
+            Delicious cakes prepared
+            specially for your celebrations.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+
+<section class="section cart-section" id="cart">
+
+    <div class="section-title">
+
+        <h2>🛒 Your Shopping Cart</h2>
+
+        <p>Review your selected cakes</p>
+
+    </div>
+
+
+    <div class="cart-box">
+
+        <div id="cartItems">
+
+            <p style="text-align:center;color:#777;">
+                Your cart is empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <h2>
+                Total: ₹<span id="cartTotal">0</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDER FORM ================= -->
+
+<section class="section order-section" id="order">
+
+    <div class="section-title">
+
+        <h2>📦 Place Your Order</h2>
+
+        <p>Enter your delivery details</p>
+
+    </div>
+
+
+    <form class="order-form" onsubmit="placeOrder(event)">
+
+        <div class="form-group">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter your name"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Mobile Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter mobile number"
+                pattern="[0-9]{10}"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email address"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Delivery Address
+            </label>
+
+            <textarea
+                id="address"
+                rows="4"
+                placeholder="Enter complete delivery address"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Delivery Date
+            </label>
+
+            <input
+                type="date"
+                id="date"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Payment Method
+            </label>
+
+            <select id="payment" required>
+
+                <option value="">
+                    Select Payment Method
+                </option>
+
+                <option>
+                    Cash on Delivery
+                </option>
+
+                <option>
+                    UPI
+                </option>
+
+                <option>
+                    Credit / Debit Card
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button class="place-order" type="submit">
+            🍰 Place Cake Order
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="successModal">
+
+    <div class="modal-content">
+
+        <div class="success-icon">
+            🎉
+        </div>
+
+        <h2>
+            Order Placed Successfully!
+        </h2>
+
+        <p id="successMessage">
+            Thank you for ordering from Sweet Bliss.
+        </p>
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+            Continue Shopping
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>🍰 Sweet Bliss</h2>
+
+    <p>
+        Fresh Cakes • Sweet Moments • Happy Customers
+    </p>
+
+    <p>
+        📞 +91 98765 43210
+    </p>
+
+    <p>
+        ✉️ orders@sweetbliss.com
+    </p>
+
+    <div class="social">
+        📘 &nbsp; 📸 &nbsp; 🐦
+    </div>
+
+    <p style="margin-top:20px;">
+        © 2026 Sweet Bliss. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* CART ARRAY */
+
+let cart = [];
+
+
+/* ADD TO CART */
+
+function addToCart(name, price, emoji){
+
+    let existing = cart.find(item => item.name === name);
+
+    if(existing){
+
+        existing.quantity++;
+
+    }else{
+
+        cart.push({
+            name:name,
+            price:price,
+            emoji:emoji,
+            quantity:1
+        });
+
+    }
+
+    updateCart();
+
+    alert(name + " added to cart! 🛒");
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+    let cartItems = document.getElementById("cartItems");
+
+    let cartCount = document.getElementById("cartCount");
+
+    let cartTotal = document.getElementById("cartTotal");
+
+
+    if(cart.length === 0){
+
+        cartItems.innerHTML =
+        '<p style="text-align:center;color:#777;">Your cart is empty.</p>';
+
+        cartCount.innerText = 0;
+
+        cartTotal.innerText = 0;
+
+        return;
+
+    }
+
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    let count = 0;
+
+
+    cart.forEach((item,index)=>{
+
+        let itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+
+        count += item.quantity;
+
+
+        let div = document.createElement("div");
+
+        div.className = "cart-item";
+
+
+        div.innerHTML = `
+
+            <div class="cart-item-info">
+
+                <div class="cart-item-emoji">
+                    ${item.emoji}
+                </div>
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <p>
+                        ₹${item.price} each
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="quantity">
+
+                <button onclick="changeQuantity(${index},-1)">
+                    −
+                </button>
+
+                <strong>
+                    ${item.quantity}
+                </strong>
+
+                <button onclick="changeQuantity(${index},1)">
+                    +
+                </button>
+
+            </div>
+
+
+            <strong>
+                ₹${itemTotal}
+            </strong>
+
+
+            <button
+                class="remove-btn"
+                onclick="removeItem(${index})">
+
+                Remove
+
+            </button>
+
+        `;
+
+
+        cartItems.appendChild(div);
+
+    });
+
+
+    cartCount.innerText = count;
+
+    cartTotal.innerText = total;
+
+}
+
+
+/* CHANGE QUANTITY */
+
+function changeQuantity(index,change){
+
+    cart[index].quantity += change;
+
+
+    if(cart[index].quantity <= 0){
+
+        cart.splice(index,1);
+
+    }
+
+
+    updateCart();
+
+}
+
+
+/* REMOVE ITEM */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+/* SEARCH CAKES */
+
+function searchCake(){
+
+    let input =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    let cards =
+        document.querySelectorAll(".cake-card");
+
+
+    cards.forEach(card=>{
+
+        let name =
+            card.dataset.name.toLowerCase();
+
+
+        if(name.includes(input)){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* FILTER CAKES */
+
+function filterCake(category,button){
+
+    let cards =
+        document.querySelectorAll(".cake-card");
+
+
+    let buttons =
+        document.querySelectorAll(".filter-btn");
+
+
+    buttons.forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+
+    button.classList.add("active");
+
+
+    cards.forEach(card=>{
+
+        if(category === "all"){
+
+            card.style.display = "block";
+
+        }
+
+        else if(card.dataset.category === category){
+
+            card.style.display = "block";
+
+        }
+
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* GO TO CAKES */
+
+function goToCakes(){
+
+    document
+    .getElementById("cakes")
+    .scrollIntoView();
+
+}
+
+
+/* GO TO CART */
+
+function goToCart(){
+
+    document
+    .getElementById("cart")
+    .scrollIntoView();
+
+}
+
+
+/* PLACE ORDER */
+
+function placeOrder(event){
+
+    event.preventDefault();
+
+
+    if(cart.length === 0){
+
+        alert(
+            "Please add at least one cake to your cart! 🍰"
+        );
+
+        goToCakes();
+
+        return;
+
+    }
+
+
+    let name =
+        document.getElementById("customerName").value;
+
+
+    let total =
+        document.getElementById("cartTotal").innerText;
+
+
+    document.getElementById("successMessage").innerText =
+
+        "Thank you, " + name +
+        "! Your cake order worth ₹" +
+        total +
+        " has been placed successfully. 🎂";
+
+
+    document
+        .getElementById("successModal")
+        .style.display = "flex";
+
+
+    cart = [];
+
+    updateCart();
+
+
+    document.querySelector(".order-form").reset();
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    document
+        .getElementById("successModal")
+        .style.display = "none";
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+window.onclick = function(event){
+
+    let modal =
+        document.getElementById("successModal");
+
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+};
+
+
+/* SET MINIMUM DELIVERY DATE */
+
+let today =
+    new Date().toISOString().split("T")[0];
+
+
+document
+    .getElementById("date")
+    .setAttribute("min",today);
+
+
+</script>
+
+</body>
+</html>
+```

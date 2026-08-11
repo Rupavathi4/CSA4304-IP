@@ -1,0 +1,1889 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CarePlus Hospital - Appointment Booking</title>
+
+<style>
+
+/* ================= BASIC ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5fbff;
+    color:#263238;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:linear-gradient(135deg,#0077b6,#00a6d6);
+    color:white;
+    padding:16px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 18px rgba(0,0,0,0.15);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#dff8ff;
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:#d9f8ff;
+}
+
+.header-btn{
+    background:white;
+    color:#0077b6;
+    border:none;
+    padding:10px 18px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.header-btn:hover{
+    background:#e9faff;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:520px;
+    padding:70px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(135deg,#e9faff,#f5fcff);
+}
+
+.hero-content{
+    width:55%;
+}
+
+.hero-content h1{
+    font-size:50px;
+    line-height:1.15;
+    color:#005b8f;
+    margin-bottom:20px;
+}
+
+.hero-content h1 span{
+    color:#00a6d6;
+}
+
+.hero-content p{
+    font-size:18px;
+    line-height:1.7;
+    color:#607d8b;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    background:#008fc5;
+    border:none;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,143,197,0.25);
+}
+
+.hero-btn:hover{
+    background:#006f9c;
+}
+
+.hero-icon{
+    width:40%;
+    text-align:center;
+    font-size:190px;
+}
+
+/* ================= COMMON SECTION ================= */
+
+.section{
+    padding:65px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:#005b8f;
+    font-size:34px;
+}
+
+.section-title p{
+    color:#78909c;
+    margin-top:8px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:45px 7%;
+    background:white;
+}
+
+.feature{
+    text-align:center;
+    padding:25px;
+    background:#f3fbff;
+    border:1px solid #d9f2fa;
+    border-radius:16px;
+}
+
+.feature-icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.feature h3{
+    color:#00658f;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#78909c;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* ================= DEPARTMENTS ================= */
+
+.department-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+
+.department{
+    background:white;
+    padding:22px;
+    text-align:center;
+    border-radius:15px;
+    border:1px solid #dceff5;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.department:hover{
+    transform:translateY(-5px);
+    border-color:#00a6d6;
+    box-shadow:0 10px 25px rgba(0,166,214,0.15);
+}
+
+.department-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.department h3{
+    color:#005b8f;
+    font-size:17px;
+}
+
+/* ================= DOCTORS ================= */
+
+.doctor-section{
+    background:#eefaff;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:500px;
+    padding:14px 20px;
+    border:2px solid #cdebf4;
+    border-radius:30px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-box input:focus{
+    border-color:#00a6d6;
+}
+
+.doctor-filter{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.filter-btn{
+    padding:9px 16px;
+    border:1px solid #00a6d6;
+    background:white;
+    color:#0077b6;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:#008fc5;
+    color:white;
+}
+
+.doctor-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.doctor-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    border:1px solid #dceff5;
+    box-shadow:0 8px 25px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
+
+.doctor-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 30px rgba(0,119,182,0.15);
+}
+
+.doctor-photo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#dff7ff;
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.doctor-card h3{
+    color:#005b8f;
+    margin-bottom:7px;
+}
+
+.speciality{
+    color:#00a0ca;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.experience{
+    color:#78909c;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.rating{
+    color:#f5a900;
+    margin-bottom:15px;
+}
+
+.doctor-btn{
+    width:100%;
+    border:none;
+    background:#008fc5;
+    color:white;
+    padding:11px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.doctor-btn:hover{
+    background:#006f9c;
+}
+
+/* ================= APPOINTMENT ================= */
+
+.booking-section{
+    background:white;
+}
+
+.booking-container{
+    max-width:900px;
+    margin:auto;
+    background:#f7fcff;
+    padding:35px;
+    border-radius:20px;
+    border:1px solid #dceff5;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    color:#455a64;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #cfdfe5;
+    border-radius:9px;
+    outline:none;
+    background:white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#00a6d6;
+}
+
+.gender{
+    display:flex;
+    gap:20px;
+    padding:10px 0;
+}
+
+.gender label{
+    font-weight:normal;
+}
+
+.book-btn{
+    width:100%;
+    border:none;
+    background:#008fc5;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.book-btn:hover{
+    background:#006f9c;
+}
+
+/* ================= APPOINTMENT SUMMARY ================= */
+
+.summary{
+    max-width:900px;
+    margin:30px auto 0;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.07);
+    display:none;
+}
+
+.summary h3{
+    color:#005b8f;
+    margin-bottom:18px;
+}
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.summary-item{
+    background:#eefaff;
+    padding:13px;
+    border-radius:8px;
+}
+
+.summary-item strong{
+    color:#005b8f;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:linear-gradient(135deg,#005b8f,#008fc5);
+    color:white;
+}
+
+.about-container{
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+}
+
+.about h2{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.about p{
+    line-height:1.8;
+    color:#e0f8ff;
+}
+
+/* ================= REVIEWS ================= */
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:22px;
+}
+
+.review{
+    background:#f5fbff;
+    padding:25px;
+    border-radius:16px;
+    border:1px solid #dceff5;
+}
+
+.stars{
+    color:#f5a900;
+    margin-bottom:12px;
+}
+
+.review p{
+    color:#607d8b;
+    line-height:1.6;
+}
+
+.review h4{
+    color:#005b8f;
+    margin-top:15px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:3000;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:460px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.success-icon{
+    font-size:70px;
+}
+
+.modal-content h2{
+    color:#005b8f;
+    margin:15px 0;
+}
+
+.modal-content p{
+    color:#607d8b;
+    line-height:1.6;
+}
+
+.close-btn{
+    margin-top:20px;
+    border:none;
+    background:#008fc5;
+    color:white;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#102a36;
+    color:white;
+    padding:40px 7%;
+    text-align:center;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#cfdde2;
+    margin:6px;
+}
+
+.contact{
+    margin:20px 0;
+    line-height:2;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .hero-icon{
+        width:100%;
+        font-size:130px;
+        margin-top:30px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .summary-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🏥 Care<span>Plus</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#departments">Departments</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#booking">Appointment</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="header-btn" onclick="goToBooking()">
+        Book Appointment
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Your Health,
+            <span>Our Priority.</span>
+        </h1>
+
+        <p>
+            Welcome to CarePlus Hospital. Find experienced
+            doctors, explore medical departments and book
+            your hospital appointment quickly and easily.
+        </p>
+
+        <button class="hero-btn" onclick="goToDoctors()">
+            👨‍⚕️ Find a Doctor
+        </button>
+
+    </div>
+
+    <div class="hero-icon">
+        🏥
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            👨‍⚕️
+        </div>
+
+        <h3>Expert Doctors</h3>
+
+        <p>
+            Experienced doctors across multiple
+            medical specialties.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            📅
+        </div>
+
+        <h3>Easy Appointment</h3>
+
+        <p>
+            Book your appointment online
+            in just a few steps.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🏥
+        </div>
+
+        <h3>Modern Facilities</h3>
+
+        <p>
+            Advanced facilities for quality
+            healthcare services.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🚑
+        </div>
+
+        <h3>Emergency Care</h3>
+
+        <p>
+            Dedicated emergency services
+            available for patients.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DEPARTMENTS ================= -->
+
+<section class="section" id="departments">
+
+    <div class="section-title">
+
+        <h2>Medical Departments</h2>
+
+        <p>
+            Choose a department to find the right specialist
+        </p>
+
+    </div>
+
+
+    <div class="department-grid">
+
+        <div class="department"
+             onclick="filterDepartment('Cardiology')">
+
+            <div class="department-icon">
+                ❤️
+            </div>
+
+            <h3>Cardiology</h3>
+
+        </div>
+
+
+        <div class="department"
+             onclick="filterDepartment('Neurology')">
+
+            <div class="department-icon">
+                🧠
+            </div>
+
+            <h3>Neurology</h3>
+
+        </div>
+
+
+        <div class="department"
+             onclick="filterDepartment('Dermatology')">
+
+            <div class="department-icon">
+                🧴
+            </div>
+
+            <h3>Dermatology</h3>
+
+        </div>
+
+
+        <div class="department"
+             onclick="filterDepartment('Pediatrics')">
+
+            <div class="department-icon">
+                👶
+            </div>
+
+            <h3>Pediatrics</h3>
+
+        </div>
+
+
+        <div class="department"
+             onclick="filterDepartment('Orthopedics')">
+
+            <div class="department-icon">
+                🦴
+            </div>
+
+            <h3>Orthopedics</h3>
+
+        </div>
+
+
+        <div class="department"
+             onclick="filterDepartment('General')">
+
+            <div class="department-icon">
+                🩺
+            </div>
+
+            <h3>General Medicine</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOCTORS ================= -->
+
+<section class="section doctor-section" id="doctors">
+
+    <div class="section-title">
+
+        <h2>Our Specialist Doctors</h2>
+
+        <p>
+            Find a doctor based on specialization
+        </p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="doctorSearch"
+            placeholder="🔍 Search doctor or specialization..."
+            onkeyup="searchDoctors()"
+        >
+
+    </div>
+
+
+    <div class="doctor-filter">
+
+        <button class="filter-btn active"
+                onclick="filterDoctors('All',this)">
+            All
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterDoctors('Cardiology',this)">
+            Cardiology
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterDoctors('Neurology',this)">
+            Neurology
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterDoctors('Dermatology',this)">
+            Dermatology
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterDoctors('Pediatrics',this)">
+            Pediatrics
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterDoctors('Orthopedics',this)">
+            Orthopedics
+        </button>
+
+        <button class="filter-btn"
+                onclick="filterDoctors('General',this)">
+            General
+        </button>
+
+    </div>
+
+
+    <div class="doctor-grid" id="doctorGrid">
+
+
+        <!-- DOCTOR 1 -->
+
+        <div class="doctor-card"
+             data-department="Cardiology"
+             data-name="Dr. Arjun Kumar Cardiology">
+
+            <div class="doctor-photo">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. Arjun Kumar
+            </h3>
+
+            <div class="speciality">
+                Cardiologist
+            </div>
+
+            <div class="experience">
+                15 Years Experience
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <button class="doctor-btn"
+                    onclick="selectDoctor('Dr. Arjun Kumar','Cardiology')">
+                Book Appointment
+            </button>
+
+        </div>
+
+
+        <!-- DOCTOR 2 -->
+
+        <div class="doctor-card"
+             data-department="Neurology"
+             data-name="Dr. Priya Sharma Neurology">
+
+            <div class="doctor-photo">
+                👩‍⚕️
+            </div>
+
+            <h3>
+                Dr. Priya Sharma
+            </h3>
+
+            <div class="speciality">
+                Neurologist
+            </div>
+
+            <div class="experience">
+                12 Years Experience
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <button class="doctor-btn"
+                    onclick="selectDoctor('Dr. Priya Sharma','Neurology')">
+                Book Appointment
+            </button>
+
+        </div>
+
+
+        <!-- DOCTOR 3 -->
+
+        <div class="doctor-card"
+             data-department="Dermatology"
+             data-name="Dr. Meera Rao Dermatology">
+
+            <div class="doctor-photo">
+                👩‍⚕️
+            </div>
+
+            <h3>
+                Dr. Meera Rao
+            </h3>
+
+            <div class="speciality">
+                Dermatologist
+            </div>
+
+            <div class="experience">
+                10 Years Experience
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆
+            </div>
+
+            <button class="doctor-btn"
+                    onclick="selectDoctor('Dr. Meera Rao','Dermatology')">
+                Book Appointment
+            </button>
+
+        </div>
+
+
+        <!-- DOCTOR 4 -->
+
+        <div class="doctor-card"
+             data-department="Pediatrics"
+             data-name="Dr. Rahul Verma Pediatrics">
+
+            <div class="doctor-photo">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. Rahul Verma
+            </h3>
+
+            <div class="speciality">
+                Pediatrician
+            </div>
+
+            <div class="experience">
+                9 Years Experience
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <button class="doctor-btn"
+                    onclick="selectDoctor('Dr. Rahul Verma','Pediatrics')">
+                Book Appointment
+            </button>
+
+        </div>
+
+
+        <!-- DOCTOR 5 -->
+
+        <div class="doctor-card"
+             data-department="Orthopedics"
+             data-name="Dr. Sneha Patel Orthopedics">
+
+            <div class="doctor-photo">
+                👩‍⚕️
+            </div>
+
+            <h3>
+                Dr. Sneha Patel
+            </h3>
+
+            <div class="speciality">
+                Orthopedic Surgeon
+            </div>
+
+            <div class="experience">
+                14 Years Experience
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <button class="doctor-btn"
+                    onclick="selectDoctor('Dr. Sneha Patel','Orthopedics')">
+                Book Appointment
+            </button>
+
+        </div>
+
+
+        <!-- DOCTOR 6 -->
+
+        <div class="doctor-card"
+             data-department="General"
+             data-name="Dr. Karthik Rao General">
+
+            <div class="doctor-photo">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. Karthik Rao
+            </h3>
+
+            <div class="speciality">
+                General Physician
+            </div>
+
+            <div class="experience">
+                11 Years Experience
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆
+            </div>
+
+            <button class="doctor-btn"
+                    onclick="selectDoctor('Dr. Karthik Rao','General')">
+                Book Appointment
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="section booking-section" id="booking">
+
+    <div class="section-title">
+
+        <h2>📅 Book Your Appointment</h2>
+
+        <p>
+            Fill in your details to schedule a consultation
+        </p>
+
+    </div>
+
+
+    <div class="booking-container">
+
+        <form onsubmit="bookAppointment(event)">
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Patient Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="patientName"
+                        placeholder="Enter patient name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10-digit mobile number"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Patient Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        min="1"
+                        max="120"
+                        placeholder="Enter age"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Gender
+                </label>
+
+                <div class="gender">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Male"
+                            required
+                        >
+                        Male
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Female"
+                        >
+                        Female
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Other"
+                        >
+                        Other
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Select Department
+                    </label>
+
+                    <select id="department" required>
+
+                        <option value="">
+                            Choose Department
+                        </option>
+
+                        <option>Cardiology</option>
+                        <option>Neurology</option>
+                        <option>Dermatology</option>
+                        <option>Pediatrics</option>
+                        <option>Orthopedics</option>
+                        <option>General</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Select Doctor
+                    </label>
+
+                    <select id="doctor" required>
+
+                        <option value="">
+                            Choose Doctor
+                        </option>
+
+                        <option>
+                            Dr. Arjun Kumar
+                        </option>
+
+                        <option>
+                            Dr. Priya Sharma
+                        </option>
+
+                        <option>
+                            Dr. Meera Rao
+                        </option>
+
+                        <option>
+                            Dr. Rahul Verma
+                        </option>
+
+                        <option>
+                            Dr. Sneha Patel
+                        </option>
+
+                        <option>
+                            Dr. Karthik Rao
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Appointment Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="appointmentDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Time
+                    </label>
+
+                    <select id="appointmentTime" required>
+
+                        <option value="">
+                            Select Time
+                        </option>
+
+                        <option>09:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>02:00 PM</option>
+                        <option>03:00 PM</option>
+                        <option>04:00 PM</option>
+                        <option>05:00 PM</option>
+                        <option>06:00 PM</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Reason for Visit
+                </label>
+
+                <textarea
+                    id="reason"
+                    rows="4"
+                    placeholder="Briefly describe the reason for your visit..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="book-btn">
+
+                📅 Confirm Appointment
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary" id="appointmentSummary">
+
+        <h3>
+            📋 Appointment Summary
+        </h3>
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+                <strong>Patient:</strong>
+                <span id="summaryName"></span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Phone:</strong>
+                <span id="summaryPhone"></span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Department:</strong>
+                <span id="summaryDepartment"></span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Doctor:</strong>
+                <span id="summaryDoctor"></span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Date:</strong>
+                <span id="summaryDate"></span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Time:</strong>
+                <span id="summaryTime"></span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Status:</strong>
+                <span style="color:green;font-weight:bold;">
+                    Confirmed ✓
+                </span>
+            </div>
+
+            <div class="summary-item">
+                <strong>Hospital:</strong>
+                CarePlus Hospital
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section about" id="about">
+
+    <div class="about-container">
+
+        <h2>
+            About CarePlus Hospital
+        </h2>
+
+        <p>
+            CarePlus Hospital is a modern healthcare facility
+            dedicated to providing accessible and quality medical
+            care. Our hospital brings together experienced doctors,
+            trained healthcare professionals and modern medical
+            facilities to provide patients with a comfortable
+            healthcare experience.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Patient Reviews</h2>
+
+        <p>
+            What our patients say about CarePlus
+        </p>
+
+    </div>
+
+
+    <div class="review-grid">
+
+
+        <div class="review">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "The appointment booking process was very easy.
+                The doctor was professional and explained everything
+                clearly."
+            </p>
+
+            <h4>
+                — Riya
+            </h4>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "The hospital staff were friendly and helpful.
+                I did not have to wait long for my appointment."
+            </p>
+
+            <h4>
+                — Aravind
+            </h4>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">
+                ⭐⭐⭐⭐☆
+            </div>
+
+            <p>
+                "Clean environment and experienced doctors.
+                Overall, it was a good experience."
+            </p>
+
+            <h4>
+                — Meena
+            </h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="successModal">
+
+    <div class="modal-content">
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h2>
+            Appointment Confirmed!
+        </h2>
+
+        <p id="successMessage">
+            Your hospital appointment has been successfully booked.
+        </p>
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        🏥 CarePlus Hospital
+    </h2>
+
+    <p>
+        Quality Healthcare • Trusted Doctors • Better Care
+    </p>
+
+    <div class="contact">
+
+        📞 Emergency: +91 98765 43210<br>
+
+        ☎️ Reception: +91 91234 56789<br>
+
+        ✉️ care@careplushospital.com<br>
+
+        📍 Chennai, Tamil Nadu
+
+    </div>
+
+    <p>
+        © 2026 CarePlus Hospital. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* ================= NAVIGATION ================= */
+
+function goToBooking(){
+
+    document
+        .getElementById("booking")
+        .scrollIntoView();
+
+}
+
+
+function goToDoctors(){
+
+    document
+        .getElementById("doctors")
+        .scrollIntoView();
+
+}
+
+
+/* ================= SELECT DOCTOR ================= */
+
+function selectDoctor(name,department){
+
+    document.getElementById("doctor").value = name;
+
+    document.getElementById("department").value = department;
+
+    goToBooking();
+
+}
+
+
+/* ================= DEPARTMENT FILTER ================= */
+
+function filterDepartment(department){
+
+    document
+        .getElementById("doctors")
+        .scrollIntoView();
+
+    filterDoctors(department,null);
+
+}
+
+
+/* ================= FILTER DOCTORS ================= */
+
+function filterDoctors(department,button){
+
+    let cards =
+        document.querySelectorAll(".doctor-card");
+
+
+    let buttons =
+        document.querySelectorAll(".filter-btn");
+
+
+    if(button){
+
+        buttons.forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+    }
+
+
+    cards.forEach(function(card){
+
+        if(department === "All"){
+
+            card.style.display = "block";
+
+        }
+
+        else if(
+            card.dataset.department === department
+        ){
+
+            card.style.display = "block";
+
+        }
+
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* ================= SEARCH DOCTORS ================= */
+
+function searchDoctors(){
+
+    let search =
+        document
+        .getElementById("doctorSearch")
+        .value
+        .toLowerCase();
+
+
+    let cards =
+        document.querySelectorAll(".doctor-card");
+
+
+    cards.forEach(function(card){
+
+        let name =
+            card.dataset.name.toLowerCase();
+
+
+        if(name.includes(search)){
+
+            card.style.display = "block";
+
+        }
+
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* ================= BOOK APPOINTMENT ================= */
+
+function bookAppointment(event){
+
+    event.preventDefault();
+
+
+    let name =
+        document.getElementById("patientName").value;
+
+    let phone =
+        document.getElementById("phone").value;
+
+    let department =
+        document.getElementById("department").value;
+
+    let doctor =
+        document.getElementById("doctor").value;
+
+    let date =
+        document.getElementById("appointmentDate").value;
+
+    let time =
+        document.getElementById("appointmentTime").value;
+
+
+    /* SUMMARY */
+
+    document.getElementById("summaryName").innerText =
+        name;
+
+    document.getElementById("summaryPhone").innerText =
+        phone;
+
+    document.getElementById("summaryDepartment").innerText =
+        department;
+
+    document.getElementById("summaryDoctor").innerText =
+        doctor;
+
+    document.getElementById("summaryDate").innerText =
+        date;
+
+    document.getElementById("summaryTime").innerText =
+        time;
+
+
+    document.getElementById("appointmentSummary")
+        .style.display = "block";
+
+
+    /* SUCCESS MESSAGE */
+
+    document.getElementById("successMessage").innerText =
+
+        "Thank you, " + name +
+        ". Your appointment with " +
+        doctor +
+        " has been confirmed for " +
+        date +
+        " at " +
+        time +
+        ".";
+
+
+    document.getElementById("successModal")
+        .style.display = "flex";
+
+
+    setTimeout(function(){
+
+        document.getElementById("appointmentSummary")
+            .scrollIntoView();
+
+    },500);
+
+}
+
+
+/* ================= CLOSE MODAL ================= */
+
+function closeModal(){
+
+    document.getElementById("successModal")
+        .style.display = "none";
+
+}
+
+
+/* ================= CLICK OUTSIDE MODAL ================= */
+
+window.onclick = function(event){
+
+    let modal =
+        document.getElementById("successModal");
+
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+};
+
+
+/* ================= MINIMUM DATE ================= */
+
+let today =
+    new Date().toISOString().split("T")[0];
+
+
+document
+    .getElementById("appointmentDate")
+    .setAttribute("min",today);
+
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Modern Library Management System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:linear-gradient(135deg,#0f4c81,#6dd5fa);min-height:100vh}
+header{padding:20px;color:#fff;text-align:center}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+nav button{padding:10px 18px;border:none;border-radius:25px;background:#fff;color:#0f4c81;font-weight:bold;cursor:pointer}
+nav button:hover{background:#ffd54f}
+.container{width:90%;max-width:1000px;margin:auto;background:#fff;border-radius:15px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.hidden{display:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;margin:20px 0}
+.card{background:#0f4c81;color:#fff;padding:20px;border-radius:12px;text-align:center}
+input{padding:10px;width:100%;margin:8px 0;border-radius:8px;border:1px solid #ccc}
+button.action{background:#0f4c81;color:#fff;padding:10px 18px;border:none;border-radius:8px;cursor:pointer}
+.book{border:1px solid #ddd;padding:15px;border-radius:10px;margin:10px 0}
+</style>
+</head>
+<body>
+<header>
+<h1><i class="fa-solid fa-book"></i> Library Management System</h1>
+<p>Modern HTML, CSS & JavaScript Demo</p>
+</header>
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('books')">Books</button>
+<button onclick="show('login')">Login</button>
+<button onclick="show('admin')">Admin</button>
+</nav>
+
+<div id="home" class="container">
+<h2>Dashboard</h2>
+<div class="cards">
+<div class="card"><h3 id="tb">3</h3><p>Total Books</p></div>
+<div class="card"><h3>120</h3><p>Students</p></div>
+<div class="card"><h3>25</h3><p>Issued</p></div>
+<div class="card"><h3>5</h3><p>Available</p></div>
+</div>
+</div>
+
+<div id="books" class="container hidden">
+<h2>Search Books</h2>
+<input id="search" placeholder="Enter book name">
+<button class="action" onclick="searchBooks()">Search</button>
+<div id="list"></div>
+</div>
+
+<div id="login" class="container hidden">
+<h2>Login</h2>
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+<button class="action" onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
+
+<div id="admin" class="container hidden">
+<h2>Add Book</h2>
+<input id="bn" placeholder="Book Name">
+<input id="ba" placeholder="Author">
+<button class="action" onclick="addBook()">Add Book</button>
+</div>
+
+<script>
+let books=[
+{name:"Java Programming",author:"James Gosling"},
+{name:"Python Programming",author:"Guido van Rossum"},
+{name:"Data Structures",author:"Mark Allen"}
+];
+function show(id){
+["home","books","login","admin"].forEach(x=>document.getElementById(x).classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+}
+function refresh(){document.getElementById("tb").innerText=books.length;}
+function searchBooks(){
+let s=document.getElementById("search").value.toLowerCase(),o="";
+books.filter(b=>b.name.toLowerCase().includes(s)).forEach(b=>{
+o+=`<div class='book'><h3>${b.name}</h3><p>Author: ${b.author}</p></div>`;
+});
+document.getElementById("list").innerHTML=o||"<p>No books found.</p>";
+}
+function login(){
+let u=document.getElementById("u").value,p=document.getElementById("p").value;
+document.getElementById("msg").innerHTML=(u=="admin"&&p=="1234")?"Admin Login Successful":"Invalid Login";
+}
+function addBook(){
+let n=bn.value,a=ba.value;
+if(!n||!a){alert("Enter all details");return;}
+books.push({name:n,author:a});
+refresh();
+alert("Book Added Successfully");
+bn.value="";ba.value="";
+}
+refresh();
+</script>
+</body>
+</html>

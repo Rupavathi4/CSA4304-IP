@@ -1,0 +1,2369 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StyleHub - Fashion Store</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#faf7f5;
+    color:#292524;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar{
+    background:#292524;
+    color:white;
+    text-align:center;
+    padding:9px;
+    font-size:13px;
+    letter-spacing:.5px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:white;
+    padding:18px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#b45309;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#44403c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:#b45309;
+}
+
+.header-actions{
+    display:flex;
+    gap:10px;
+}
+
+.icon-btn{
+    border:none;
+    background:#f5f5f4;
+    padding:11px 15px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.icon-btn:hover{
+    background:#fef3c7;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:540px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 8%;
+    background:
+    linear-gradient(120deg,#fff7ed,#fef2f2);
+}
+
+.hero-content{
+    width:55%;
+}
+
+.hero-small{
+    color:#b45309;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+    color:#292524;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#b45309;
+}
+
+.hero p{
+    font-size:18px;
+    color:#78716c;
+    line-height:1.7;
+    margin-bottom:28px;
+}
+
+.shop-btn{
+    border:none;
+    background:#292524;
+    color:white;
+    padding:14px 30px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.shop-btn:hover{
+    background:#b45309;
+}
+
+.hero-fashion{
+    width:40%;
+    text-align:center;
+    font-size:170px;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    background:white;
+    padding:40px 7%;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
+}
+
+.feature{
+    text-align:center;
+    padding:22px;
+}
+
+.feature-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.feature h3{
+    color:#44403c;
+    margin-bottom:7px;
+}
+
+.feature p{
+    color:#78716c;
+    font-size:14px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    padding:65px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:34px;
+    color:#292524;
+}
+
+.section-title p{
+    color:#78716c;
+    margin-top:8px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:550px;
+    padding:15px 20px;
+    border:2px solid #e7e5e4;
+    border-radius:30px;
+    outline:none;
+    font-size:15px;
+    background:white;
+}
+
+.search-box input:focus{
+    border-color:#b45309;
+}
+
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.categories{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.category-btn{
+    padding:10px 19px;
+    border:1px solid #d6d3d1;
+    background:white;
+    color:#57534e;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:#292524;
+    color:white;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+}
+
+.product-card{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid #e7e5e4;
+
+    box-shadow:
+    0 7px 20px rgba(0,0,0,.05);
+
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.12);
+}
+
+.product-image{
+    height:270px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:115px;
+
+    background:#fafaf9;
+
+    position:relative;
+}
+
+.badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+
+    background:#b45309;
+    color:white;
+
+    padding:6px 10px;
+
+    border-radius:5px;
+
+    font-size:11px;
+    font-weight:bold;
+}
+
+.wishlist{
+    position:absolute;
+
+    right:14px;
+    top:14px;
+
+    width:35px;
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+
+.wishlist.liked{
+    color:#dc2626;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-category{
+    font-size:12px;
+    color:#b45309;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+.product-info h3{
+    margin:8px 0;
+    color:#292524;
+}
+
+.description{
+    color:#78716c;
+    font-size:13px;
+    line-height:1.5;
+
+    min-height:40px;
+}
+
+.rating{
+    color:#f59e0b;
+    margin:10px 0;
+}
+
+.price{
+    font-size:21px;
+    font-weight:bold;
+    color:#292524;
+    margin-bottom:14px;
+}
+
+.old-price{
+    color:#a8a29e;
+    font-size:13px;
+    text-decoration:line-through;
+    margin-left:6px;
+}
+
+.add-cart{
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    background:#292524;
+
+    color:white;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.add-cart:hover{
+    background:#b45309;
+}
+
+
+/* =========================
+   COLLECTION
+========================= */
+
+.collection{
+    padding:65px 7%;
+    background:#292524;
+    color:white;
+}
+
+.collection-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+.collection-card{
+    min-height:220px;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+
+    background:#44403c;
+
+    transition:.3s;
+}
+
+.collection-card:hover{
+    transform:translateY(-5px);
+    background:#57534e;
+}
+
+.collection-card .icon{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.collection-card h3{
+    font-size:23px;
+    margin-bottom:6px;
+}
+
+.collection-card p{
+    color:#d6d3d1;
+}
+
+
+/* =========================
+   DISCOUNT
+========================= */
+
+.discount{
+    margin:50px 7%;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(135deg,#fef3c7,#ffedd5);
+}
+
+.discount h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.discount p{
+    color:#78716c;
+    margin-bottom:20px;
+}
+
+.discount button{
+    border:none;
+    background:#b45309;
+    color:white;
+    padding:13px 28px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+.cart-panel{
+    position:fixed;
+
+    top:0;
+    right:-450px;
+
+    width:420px;
+    max-width:95%;
+
+    height:100vh;
+
+    background:white;
+
+    z-index:2500;
+
+    box-shadow:
+    -5px 0 25px rgba(0,0,0,.2);
+
+    transition:.4s;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.cart-header{
+    background:#292524;
+    color:white;
+
+    padding:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.cart-header button{
+    border:none;
+    background:none;
+    color:white;
+    font-size:27px;
+    cursor:pointer;
+}
+
+.cart-items{
+    flex:1;
+    overflow-y:auto;
+    padding:20px;
+}
+
+.empty{
+    text-align:center;
+    padding:60px 10px;
+    color:#78716c;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #e7e5e4;
+}
+
+.cart-icon{
+    width:65px;
+    height:65px;
+
+    border-radius:10px;
+
+    background:#fafaf9;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:35px;
+}
+
+.cart-details{
+    flex:1;
+}
+
+.cart-details h4{
+    margin-bottom:5px;
+}
+
+.cart-price{
+    color:#b45309;
+    font-weight:bold;
+}
+
+.quantity{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-top:8px;
+}
+
+.quantity button{
+    width:25px;
+    height:25px;
+
+    border:none;
+
+    border-radius:5px;
+
+    background:#f5f5f4;
+
+    cursor:pointer;
+}
+
+.remove{
+    border:none;
+    background:none;
+    color:#dc2626;
+    cursor:pointer;
+    font-size:12px;
+    margin-top:6px;
+}
+
+.cart-footer{
+    padding:20px;
+    background:#fafaf9;
+    border-top:1px solid #e7e5e4;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+
+    font-size:21px;
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.checkout{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    background:#16a34a;
+
+    color:white;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:4000;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    width:90%;
+    max-width:470px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+}
+
+.modal-icon{
+    font-size:65px;
+}
+
+.modal-content h2{
+    color:#166534;
+    margin:15px 0;
+}
+
+.modal-content p{
+    color:#78716c;
+    line-height:1.6;
+}
+
+.done{
+    border:none;
+
+    background:#292524;
+
+    color:white;
+
+    padding:12px 28px;
+
+    border-radius:25px;
+
+    margin-top:20px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#1c1917;
+
+    color:white;
+
+    padding:45px 7%;
+
+    text-align:center;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#a8a29e;
+    margin:7px;
+}
+
+.footer-icons{
+    font-size:25px;
+    margin:18px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero-fashion{
+        width:100%;
+        font-size:120px;
+        margin-top:30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="top-bar">
+
+🔥 NEW SEASON SALE — UP TO 50% OFF | FREE SHIPPING ON ORDERS ABOVE ₹1,999
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        Style<span>Hub</span>
+    </div>
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#shop">
+            Shop
+        </a>
+
+        <a href="#collections">
+            Collections
+        </a>
+
+        <a href="#offers">
+            Offers
+        </a>
+
+        <a href="#footer">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <button
+            class="icon-btn"
+            onclick="openCart()">
+
+            🛒
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section
+    class="hero"
+    id="home">
+
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            NEW COLLECTION 2026
+        </div>
+
+        <h1>
+
+            Fashion That
+            <span>Defines You.</span>
+
+        </h1>
+
+        <p>
+
+            Discover trendy clothing, stylish accessories
+            and premium fashion collections designed
+            to make every moment special.
+
+        </p>
+
+        <button
+            class="shop-btn"
+            onclick="goToShop()">
+
+            🛍️ Shop Collection
+
+        </button>
+
+    </div>
+
+
+    <div class="hero-fashion">
+
+        👗👜
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="features">
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🚚
+        </div>
+
+        <h3>
+            Free Shipping
+        </h3>
+
+        <p>
+            Free delivery on orders above ₹1,999.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🔄
+        </div>
+
+        <h3>
+            Easy Returns
+        </h3>
+
+        <p>
+            Easy 7-day return and exchange policy.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🔒
+        </div>
+
+        <h3>
+            Secure Payment
+        </h3>
+
+        <p>
+            100% secure and trusted payment.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            💎
+        </div>
+
+        <h3>
+            Premium Quality
+        </h3>
+
+        <p>
+            Carefully selected quality products.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+     SHOP
+========================= -->
+
+<section
+    class="section"
+    id="shop">
+
+
+    <div class="section-title">
+
+        <h2>
+            Trending Fashion
+        </h2>
+
+        <p>
+            Explore our latest fashion arrivals
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search fashion products..."
+            onkeyup="searchProducts()"
+        >
+
+    </div>
+
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <button
+            class="category-btn active"
+            onclick="filterProducts('All',this)">
+
+            All
+
+        </button>
+
+        <button
+            class="category-btn"
+            onclick="filterProducts('Women',this)">
+
+            Women
+
+        </button>
+
+        <button
+            class="category-btn"
+            onclick="filterProducts('Men',this)">
+
+            Men
+
+        </button>
+
+        <button
+            class="category-btn"
+            onclick="filterProducts('Shoes',this)">
+
+            Shoes
+
+        </button>
+
+        <button
+            class="category-btn"
+            onclick="filterProducts('Accessories',this)">
+
+            Accessories
+
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div
+        class="product-grid"
+        id="productGrid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div
+            class="product-card"
+            data-category="Women"
+            data-name="Floral Summer Dress">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    NEW
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👗
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Women
+                </div>
+
+                <h3>
+                    Floral Summer Dress
+                </h3>
+
+                <p class="description">
+                    Elegant floral dress perfect
+                    for summer outings.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹1,899
+                    <span class="old-price">
+                        ₹2,499
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Floral Summer Dress',
+                    1899,
+                    '👗')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div
+            class="product-card"
+            data-category="Women"
+            data-name="Classic Kurti">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    SALE
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👚
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Women
+                </div>
+
+                <h3>
+                    Classic Cotton Kurti
+                </h3>
+
+                <p class="description">
+                    Comfortable cotton kurti
+                    for everyday style.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="price">
+                    ₹999
+                    <span class="old-price">
+                        ₹1,499
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Classic Cotton Kurti',
+                    999,
+                    '👚')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div
+            class="product-card"
+            data-category="Men"
+            data-name="Premium Casual Shirt">
+
+            <div class="product-image">
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👔
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Men
+                </div>
+
+                <h3>
+                    Premium Casual Shirt
+                </h3>
+
+                <p class="description">
+                    Stylish regular-fit shirt
+                    made from premium fabric.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹1,299
+                    <span class="old-price">
+                        ₹1,899
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Premium Casual Shirt',
+                    1299,
+                    '👔')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div
+            class="product-card"
+            data-category="Men"
+            data-name="Slim Fit Denim Jeans">
+
+            <div class="product-image">
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👖
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Men
+                </div>
+
+                <h3>
+                    Slim Fit Denim Jeans
+                </h3>
+
+                <p class="description">
+                    Comfortable denim jeans
+                    with modern slim fit.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="price">
+                    ₹1,599
+                    <span class="old-price">
+                        ₹2,199
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Slim Fit Denim Jeans',
+                    1599,
+                    '👖')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div
+            class="product-card"
+            data-category="Shoes"
+            data-name="Urban Sneakers">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    HOT
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👟
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Shoes
+                </div>
+
+                <h3>
+                    Urban Sneakers
+                </h3>
+
+                <p class="description">
+                    Lightweight sneakers designed
+                    for everyday comfort.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹2,499
+                    <span class="old-price">
+                        ₹3,499
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Urban Sneakers',
+                    2499,
+                    '👟')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div
+            class="product-card"
+            data-category="Shoes"
+            data-name="Classic Heels">
+
+            <div class="product-image">
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👠
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Shoes
+                </div>
+
+                <h3>
+                    Classic Heels
+                </h3>
+
+                <p class="description">
+                    Elegant heels for parties
+                    and special occasions.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="price">
+                    ₹1,999
+                    <span class="old-price">
+                        ₹2,799
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Classic Heels',
+                    1999,
+                    '👠')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 7 -->
+
+        <div
+            class="product-card"
+            data-category="Accessories"
+            data-name="Luxury Handbag">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    NEW
+                </span>
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                👜
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <h3>
+                    Luxury Handbag
+                </h3>
+
+                <p class="description">
+                    Stylish handbag with premium
+                    finish and spacious interior.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    ₹2,299
+                    <span class="old-price">
+                        ₹3,199
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Luxury Handbag',
+                    2299,
+                    '👜')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 8 -->
+
+        <div
+            class="product-card"
+            data-category="Accessories"
+            data-name="Fashion Sunglasses">
+
+            <div class="product-image">
+
+                <button
+                    class="wishlist"
+                    onclick="toggleWish(this)">
+
+                    ♡
+
+                </button>
+
+                🕶️
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <h3>
+                    Fashion Sunglasses
+                </h3>
+
+                <p class="description">
+                    Trendy sunglasses with
+                    UV protection.
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="price">
+                    ₹799
+                    <span class="old-price">
+                        ₹1,199
+                    </span>
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart(
+                    'Fashion Sunglasses',
+                    799,
+                    '🕶️')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COLLECTIONS
+========================= -->
+
+<section
+    class="collection"
+    id="collections">
+
+
+    <div class="section-title">
+
+        <h2 style="color:white;">
+            Explore Collections
+        </h2>
+
+        <p style="color:#d6d3d1;">
+            Find your perfect style
+        </p>
+
+    </div>
+
+
+    <div class="collection-grid">
+
+
+        <div class="collection-card">
+
+            <div class="icon">
+                👗
+            </div>
+
+            <h3>
+                Women's Collection
+            </h3>
+
+            <p>
+                Elegant styles for every occasion.
+            </p>
+
+        </div>
+
+
+        <div class="collection-card">
+
+            <div class="icon">
+                👔
+            </div>
+
+            <h3>
+                Men's Collection
+            </h3>
+
+            <p>
+                Smart and modern everyday fashion.
+            </p>
+
+        </div>
+
+
+        <div class="collection-card">
+
+            <div class="icon">
+                👟
+            </div>
+
+            <h3>
+                Footwear
+            </h3>
+
+            <p>
+                Step into comfort and style.
+            </p>
+
+        </div>
+
+
+        <div class="collection-card">
+
+            <div class="icon">
+                👜
+            </div>
+
+            <h3>
+                Accessories
+            </h3>
+
+            <p>
+                Complete your look with accessories.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DISCOUNT
+========================= -->
+
+<section
+    class="discount"
+    id="offers">
+
+    <h2>
+        🎉 Get 20% OFF
+    </h2>
+
+    <p>
+        Use coupon code
+        <strong>STYLE20</strong>
+        on orders above ₹2,999.
+    </p>
+
+    <button
+        onclick="goToShop()">
+
+        Shop Now
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div
+    class="cart-panel"
+    id="cartPanel">
+
+
+    <div class="cart-header">
+
+        <h2>
+            🛒 Shopping Cart
+        </h2>
+
+        <button
+            onclick="closeCart()">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems">
+
+        <div class="empty">
+
+            <div style="font-size:55px;">
+                🛍️
+            </div>
+
+            <p>
+                Your cart is empty
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="cartTotal">
+                ₹0
+            </span>
+
+        </div>
+
+        <button
+            class="checkout"
+            onclick="checkout()">
+
+            💳 Checkout
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-icon">
+            🎉
+        </div>
+
+        <h2>
+            Order Placed!
+        </h2>
+
+        <p id="orderMessage">
+            Thank you for shopping with StyleHub.
+        </p>
+
+        <button
+            class="done"
+            onclick="closeModal()">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="footer">
+
+    <h2>
+        StyleHub
+    </h2>
+
+    <p>
+        Fashion • Style • Confidence
+    </p>
+
+    <div class="footer-icons">
+        👗 &nbsp; 👔 &nbsp; 👟 &nbsp; 👜
+    </div>
+
+    <p>
+        📞 +91 98765 43210
+    </p>
+
+    <p>
+        ✉️ support@stylehub.com
+    </p>
+
+    <p>
+        📍 Chennai, Tamil Nadu
+    </p>
+
+    <p style="margin-top:20px;">
+        © 2026 StyleHub. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   CART
+========================= */
+
+let cart = [];
+
+
+/* =========================
+   SHOP SCROLL
+========================= */
+
+function goToShop(){
+
+    document
+        .getElementById("shop")
+        .scrollIntoView();
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(name,price,icon){
+
+    let existing =
+        cart.find(item => item.name === name);
+
+
+    if(existing){
+
+        existing.quantity++;
+
+    }
+
+    else{
+
+        cart.push({
+
+            name:name,
+            price:price,
+            icon:icon,
+            quantity:1
+
+        });
+
+    }
+
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
+
+function updateCart(){
+
+    let container =
+        document.getElementById("cartItems");
+
+    let count =
+        document.getElementById("cartCount");
+
+    let totalElement =
+        document.getElementById("cartTotal");
+
+
+    if(cart.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div style="font-size:55px;">
+                    🛍️
+                </div>
+
+                <p>
+                    Your cart is empty
+                </p>
+
+            </div>
+
+        `;
+
+        count.innerText = "0";
+
+        totalElement.innerText = "₹0";
+
+        return;
+
+    }
+
+
+    let total = 0;
+    let quantity = 0;
+
+
+    container.innerHTML = "";
+
+
+    cart.forEach(function(item,index){
+
+        total +=
+            item.price * item.quantity;
+
+        quantity +=
+            item.quantity;
+
+
+        container.innerHTML += `
+
+            <div class="cart-item">
+
+                <div class="cart-icon">
+                    ${item.icon}
+                </div>
+
+                <div class="cart-details">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <div class="cart-price">
+                        ₹${item.price.toLocaleString()}
+                    </div>
+
+                    <div class="quantity">
+
+                        <button
+                            onclick="changeQuantity(
+                            ${index},
+                            -1)">
+
+                            −
+
+                        </button>
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            onclick="changeQuantity(
+                            ${index},
+                            1)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <button
+                        class="remove"
+                        onclick="removeItem(${index})">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    count.innerText = quantity;
+
+    totalElement.innerText =
+        "₹" + total.toLocaleString();
+
+}
+
+
+/* =========================
+   CHANGE QUANTITY
+========================= */
+
+function changeQuantity(index,value){
+
+    cart[index].quantity += value;
+
+
+    if(cart[index].quantity <= 0){
+
+        cart.splice(index,1);
+
+    }
+
+
+    updateCart();
+
+}
+
+
+/* =========================
+   REMOVE
+========================= */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.add("open");
+
+}
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+function closeCart(){
+
+    document
+        .getElementById("cartPanel")
+        .classList.remove("open");
+
+}
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterProducts(category,button){
+
+    let products =
+        document.querySelectorAll(".product-card");
+
+    let buttons =
+        document.querySelectorAll(".category-btn");
+
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    products.forEach(function(product){
+
+        if(category === "All"){
+
+            product.style.display = "block";
+
+        }
+
+        else if(
+            product.dataset.category === category
+        ){
+
+            product.style.display = "block";
+
+        }
+
+        else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+    let search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    let products =
+        document.querySelectorAll(".product-card");
+
+
+    products.forEach(function(product){
+
+        let name =
+            product.dataset.name.toLowerCase();
+
+
+        if(name.includes(search)){
+
+            product.style.display = "block";
+
+        }
+
+        else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWish(button){
+
+    button.classList.toggle("liked");
+
+
+    if(button.classList.contains("liked")){
+
+        button.innerHTML = "♥";
+
+    }
+
+    else{
+
+        button.innerHTML = "♡";
+
+    }
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Your shopping cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    cart.forEach(function(item){
+
+        total +=
+            item.price * item.quantity;
+
+    });
+
+
+    document
+        .getElementById("orderMessage")
+        .innerText =
+
+        "Your StyleHub order worth ₹" +
+        total.toLocaleString() +
+        " has been placed successfully. Thank you for shopping with us!";
+
+
+    document
+        .getElementById("modal")
+        .style.display = "flex";
+
+
+    cart = [];
+
+    updateCart();
+
+    closeCart();
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(){
+
+    document
+        .getElementById("modal")
+        .style.display = "none";
+
+}
+
+
+/* =========================
+   OUTSIDE MODAL
+========================= */
+
+window.onclick = function(event){
+
+    let modal =
+        document.getElementById("modal");
+
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
+```
