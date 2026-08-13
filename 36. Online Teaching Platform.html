@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LearnHub Online Teaching</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#f8fafc;color:#1e293b}
+header{background:#4338ca;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:80px;background:linear-gradient(120deg,#e0e7ff,#f5f3ff)}
+.hero h1{font-size:52px;color:#3730a3}
+.hero span{color:#7c3aed}
+section{padding:60px 8%}
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px}
+.course{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #0001}
+.icon{font-size:55px}
+.course h3{color:#4338ca}
+.course button{margin-top:15px}
+button{padding:12px 20px;background:#4f46e5;color:white;border:0;border-radius:7px;cursor:pointer}
+.form{max-width:600px;margin:auto;background:white;padding:35px;border-radius:15px}
+input,select{width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:7px}
+.form button{width:100%}
+.result{text-align:center;margin-top:15px}
+footer{background:#1e1b4b;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">📚 LearnHub</div>
+<nav><a href="#home">Home</a><a href="#courses">Courses</a><a href="#join">Join</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Learn Anything, <span>Anywhere</span></h1>
+<p>Online courses taught by experienced instructors.</p>
+<button onclick="document.getElementById('courses').scrollIntoView()">Explore Courses</button>
+</section>
+
+<section id="courses">
+<h2 style="text-align:center;margin-bottom:35px">Popular Courses</h2>
+<div class="courses">
+<div class="course"><div class="icon">💻</div><h3>Web Development</h3><p>HTML, CSS, JavaScript</p><button onclick="enroll('Web Development')">Enroll</button></div>
+<div class="course"><div class="icon">🐍</div><h3>Python Programming</h3><p>Python from beginner to advanced</p><button onclick="enroll('Python Programming')">Enroll</button></div>
+<div class="course"><div class="icon">🤖</div><h3>Artificial Intelligence</h3><p>AI and Machine Learning</p><button onclick="enroll('Artificial Intelligence')">Enroll</button></div>
+<div class="course"><div class="icon">🗄️</div><h3>Database Management</h3><p>SQL and database concepts</p><button onclick="enroll('Database Management')">Enroll</button></div>
+</div>
+</section>
+
+<section id="join" style="background:#e0e7ff">
+<div class="form">
+<h2>Student Enrollment</h2>
+<input id="name" placeholder="Student Name">
+<input id="email" placeholder="Email">
+<select id="course">
+<option>Web Development</option>
+<option>Python Programming</option>
+<option>Artificial Intelligence</option>
+<option>Database Management</option>
+</select>
+<button onclick="join()">Join Course</button>
+<div class="result" id="result"></div>
+</div>
+</section>
+
+<footer>
+<h2>LearnHub 📚</h2>
+<p>Learn • Practice • Grow</p>
+</footer>
+
+<script>
+function enroll(c){
+document.getElementById("course").value=c;
+document.getElementById("join").scrollIntoView();
+}
+function join(){
+let n=document.getElementById("name").value;
+if(!n){alert("Enter your name");return}
+document.getElementById("result").innerHTML="✅ Enrollment successful!";
+}
+</script>
+</body>
+</html>

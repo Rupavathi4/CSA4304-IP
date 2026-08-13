@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Professional Portfolio</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#f8fafc;color:#1e293b}
+header{background:#0f172a;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:100px 8%;background:linear-gradient(120deg,#dbeafe,#e0e7ff)}
+.hero h1{font-size:55px;color:#1e40af}
+.hero p{font-size:20px;color:#64748b}
+section{padding:60px 8%}
+.skills,.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.card{background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px #0001}
+.card h3{color:#2563eb}
+button{background:#2563eb;color:white;border:0;padding:13px 25px;border-radius:7px;cursor:pointer}
+.contact{text-align:center}
+footer{background:#020617;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">Rupa.dev</div>
+<nav><a href="#home">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Hello, I'm Rupa 👋</h1>
+<p>Computer Science Student | AI & ML Enthusiast | Developer</p>
+<button onclick="document.getElementById('projects').scrollIntoView()">View My Work</button>
+</section>
+
+<section id="skills">
+<h2 style="text-align:center;margin-bottom:35px">My Skills</h2>
+<div class="skills">
+<div class="card"><h3>🐍 Python</h3><p>Programming & Machine Learning</p></div>
+<div class="card"><h3>☕ Java</h3><p>Object Oriented Programming</p></div>
+<div class="card"><h3>🌐 Web Development</h3><p>HTML, CSS, JavaScript</p></div>
+<div class="card"><h3>🤖 AI & ML</h3><p>Machine Learning & Data Science</p></div>
+</div>
+</section>
+
+<section id="projects" style="background:#eff6ff">
+<h2 style="text-align:center;margin-bottom:35px">My Projects</h2>
+<div class="projects">
+<div class="card"><h3>SkillBridge</h3><p>Campus peer-learning platform.</p></div>
+<div class="card"><h3>Laptop Price Prediction</h3><p>Machine learning price prediction project.</p></div>
+<div class="card"><h3>Smart Reminder</h3><p>Flask-based reminder application.</p></div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Let's Connect</h2>
+<p>📧 email@example.com</p>
+<p>📱 +91 9876543210</p>
+<button onclick="alert('Thank you for contacting me!')">Contact Me</button>
+</section>
+
+<footer>
+<p>© 2026 Professional Portfolio</p>
+</footer>
+
+</body>
+</html>

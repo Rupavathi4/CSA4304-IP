@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital Recipe Book</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#fff7ed;color:#292524}
+header{background:#c2410c;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:75px;background:#ffedd5}
+.hero h1{font-size:50px;color:#c2410c}
+section{padding:60px 8%}
+.recipes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px}
+.recipe{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #0001}
+.food{font-size:70px;text-align:center;background:#fef3c7;padding:25px;border-radius:10px}
+.recipe h3{color:#c2410c}
+button{background:#ea580c;color:white;border:0;padding:12px;width:100%;border-radius:7px}
+footer{background:#431407;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">🍳 RecipeBook</div>
+<nav><a href="#home">Home</a><a href="#recipes">Recipes</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Delicious Recipes at Your Fingertips</h1>
+<p>Discover easy and tasty recipes for every occasion.</p>
+</section>
+
+<section id="recipes">
+<h2 style="text-align:center">Popular Recipes</h2><br>
+<div class="recipes">
+<div class="recipe"><div class="food">🍛</div><h3>Chicken Biryani</h3><p>Spicy and aromatic rice dish.</p><button onclick="view('Chicken Biryani')">View Recipe</button></div>
+<div class="recipe"><div class="food">🍕</div><h3>Cheese Pizza</h3><p>Homemade cheesy pizza.</p><button onclick="view('Cheese Pizza')">View Recipe</button></div>
+<div class="recipe"><div class="food">🥗</div><h3>Fresh Salad</h3><p>Healthy vegetable salad.</p><button onclick="view('Fresh Salad')">View Recipe</button></div>
+<div class="recipe"><div class="food">🍰</div><h3>Chocolate Cake</h3><p>Soft and delicious cake.</p><button onclick="view('Chocolate Cake')">View Recipe</button></div>
+</div>
+</section>
+
+<footer>
+<h2>RecipeBook 🍳</h2>
+<p>Cook • Taste • Enjoy</p>
+</footer>
+
+<script>
+function view(name){
+alert("Recipe: "+name+"\n\nIngredients and preparation steps will be displayed here.");
+}
+</script>
+
+</body>
+</html>

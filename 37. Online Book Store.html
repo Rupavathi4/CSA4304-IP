@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Book Store</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#fff7ed;color:#292524}
+header{background:#78350f;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:75px;background:#ffedd5}
+.hero h1{font-size:50px;color:#92400e}
+section{padding:60px 8%}
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.book{background:white;padding:25px;border-radius:15px;text-align:center;box-shadow:0 5px 20px #0001}
+.cover{font-size:70px;background:#fef3c7;padding:25px}
+.price{color:#ea580c;font-size:20px;font-weight:bold;margin:12px}
+button{background:#ea580c;color:white;border:0;padding:12px;width:100%;border-radius:7px;cursor:pointer}
+.cart{position:fixed;right:20px;bottom:20px;background:#7c2d12;color:white;padding:15px 25px;border-radius:30px}
+footer{background:#451a03;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">📚 BookWorld</div>
+<nav><a href="#home">Home</a><a href="#books">Books</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Discover Your Next Book</h1>
+<p>Thousands of books at affordable prices.</p>
+</section>
+
+<section id="books">
+<h2 style="text-align:center;margin-bottom:35px">Best Sellers</h2>
+<div class="books">
+<div class="book"><div class="cover">📘</div><h3>Learn Python</h3><p>Programming</p><div class="price">₹499</div><button onclick="add('Learn Python')">Add to Cart</button></div>
+<div class="book"><div class="cover">📕</div><h3>AI Revolution</h3><p>Technology</p><div class="price">₹599</div><button onclick="add('AI Revolution')">Add to Cart</button></div>
+<div class="book"><div class="cover">📗</div><h3>Web Design</h3><p>Development</p><div class="price">₹399</div><button onclick="add('Web Design')">Add to Cart</button></div>
+<div class="book"><div class="cover">📙</div><h3>Data Science</h3><p>Analytics</p><div class="price">₹699</div><button onclick="add('Data Science')">Add to Cart</button></div>
+</div>
+</section>
+
+<div class="cart" id="cart">🛒 Cart: 0</div>
+
+<footer>
+<h2>BookWorld 📚</h2>
+<p>Read More. Learn More.</p>
+</footer>
+
+<script>
+let count=0;
+function add(book){
+count++;
+document.getElementById("cart").innerHTML="🛒 Cart: "+count;
+alert(book+" added to cart!");
+}
+</script>
+</body>
+</html>

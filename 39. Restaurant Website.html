@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Spice House Restaurant</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#fff7ed;color:#292524}
+header{background:#451a03;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:110px 8%;background:linear-gradient(#0008,#0008),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80');background-size:cover;color:white}
+.hero h1{font-size:55px}
+section{padding:60px 8%}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.item{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #0001}
+.item h3{color:#c2410c}
+.price{float:right;color:#ea580c;font-weight:bold}
+.about{text-align:center;background:#ffedd5}
+footer{background:#1c1917;color:white;text-align:center;padding:40px}
+button{background:#ea580c;color:white;border:0;padding:13px 25px;border-radius:7px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">🍴 Spice House</div>
+<nav><a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Welcome to Spice House</h1>
+<p>Authentic flavors. unforgettable moments.</p>
+<button onclick="document.getElementById('menu').scrollIntoView()">View Menu</button>
+</section>
+
+<section id="menu">
+<h2 style="text-align:center">Our Menu</h2><br>
+<div class="menu">
+<div class="item"><h3>Chicken Biryani <span class="price">₹280</span></h3><p>Traditional aromatic biryani.</p></div>
+<div class="item"><h3>Paneer Tikka <span class="price">₹220</span></h3><p>Grilled Indian cottage cheese.</p></div>
+<div class="item"><h3>Butter Naan <span class="price">₹60</span></h3><p>Soft Indian bread.</p></div>
+<div class="item"><h3>Chocolate Cake <span class="price">₹150</span></h3><p>Rich chocolate dessert.</p></div>
+</div>
+</section>
+
+<section class="about" id="about">
+<h2>About Us</h2>
+<p>We serve delicious food prepared with fresh ingredients and traditional recipes.</p>
+</section>
+
+<section id="contact" style="text-align:center">
+<h2>Contact Us</h2>
+<p>📍 Chennai, Tamil Nadu</p>
+<p>📞 +91 9876543210</p>
+<p>📧 info@spicehouse.com</p>
+</section>
+
+<footer>
+<h2>Spice House 🍴</h2>
+<p>Good Food • Great Memories</p>
+</footer>
+
+</body>
+</html>

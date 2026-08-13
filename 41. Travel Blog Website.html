@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel Stories</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#f0f9ff;color:#164e63}
+header{background:#0e7490;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:90px;background:linear-gradient(120deg,#cffafe,#e0f2fe)}
+.hero h1{font-size:55px;color:#0e7490}
+section{padding:60px 8%}
+.posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.post{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #0001}
+.image{font-size:75px;background:#ecfeff;padding:30px;text-align:center;border-radius:10px}
+.post h3{color:#0e7490}
+button{background:#0891b2;color:white;border:0;padding:12px 20px;border-radius:7px;cursor:pointer}
+footer{background:#083344;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">🌍 TravelStories</div>
+<nav><a href="#home">Home</a><a href="#posts">Stories</a><a href="#about">About</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Explore. Dream. Discover.</h1>
+<p>Stories from beautiful places around the world.</p>
+</section>
+
+<section id="posts">
+<h2 style="text-align:center">Latest Travel Stories</h2><br>
+<div class="posts">
+<div class="post"><div class="image">🏖️</div><h3>Weekend in Goa</h3><p>Discover beaches, food and nightlife.</p><button onclick="read('Goa')">Read More</button></div>
+<div class="post"><div class="image">🏔️</div><h3>Adventures in Manali</h3><p>Mountains, snow and unforgettable adventures.</p><button onclick="read('Manali')">Read More</button></div>
+<div class="post"><div class="image">🌴</div><h3>Kerala Backwaters</h3><p>A peaceful journey through God's Own Country.</p><button onclick="read('Kerala')">Read More</button></div>
+<div class="post"><div class="image">🏰</div><h3>Royal Rajasthan</h3><p>Explore India's royal heritage.</p><button onclick="read('Rajasthan')">Read More</button></div>
+</div>
+</section>
+
+<section id="about" style="background:#cffafe;text-align:center">
+<h2>About TravelStories</h2>
+<p>We share travel experiences, tips and destination guides.</p>
+</section>
+
+<footer>
+<h2>TravelStories 🌍</h2>
+<p>Travel More. Live More.</p>
+</footer>
+
+<script>
+function read(place){
+alert("Opening travel story: "+place);
+}
+</script>
+
+</body>
+</html>
