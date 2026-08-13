@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ReMarket - Second Hand Marketplace</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial;
+}
+
+body{
+    background:#f8fafc;
+    color:#1e293b;
+}
+
+header{
+    background:#166534;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#86efac;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+}
+
+.sell{
+    border:0;
+    background:#86efac;
+    color:#14532d;
+    padding:11px 18px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.hero{
+    text-align:center;
+    padding:70px 7%;
+    background:#dcfce7;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#15803d;
+}
+
+.hero p{
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+.search{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+}
+
+.search input{
+    flex:1;
+    padding:15px;
+    border:1px solid #cbd5e1;
+    border-radius:8px 0 0 8px;
+}
+
+.search button{
+    border:0;
+    background:#166534;
+    color:white;
+    padding:15px 25px;
+    border-radius:0 8px 8px 0;
+}
+
+.section{
+    padding:60px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h2{
+    font-size:34px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #e2e8f0;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.image{
+    height:210px;
+    background:#f0fdf4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:100px;
+}
+
+.info{
+    padding:20px;
+}
+
+.info p{
+    color:#64748b;
+    margin:8px 0;
+}
+
+.price{
+    color:#15803d;
+    font-weight:bold;
+    font-size:21px;
+    margin:12px 0;
+}
+
+.contact{
+    width:100%;
+    padding:11px;
+    border:0;
+    background:#166534;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.form-section{
+    background:#dcfce7;
+}
+
+.form{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+}
+
+.form h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.group{
+    margin-bottom:15px;
+}
+
+.group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+.group input,
+.group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+}
+
+.submit{
+    width:100%;
+    padding:13px;
+    border:0;
+    background:#166534;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+footer{
+    background:#052e16;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .search{
+        flex-direction:column;
+    }
+
+    .search input,
+    .search button{
+        border-radius:7px;
+        margin:3px 0;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Re<span>Market</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#sell">Sell</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="sell"
+    onclick="document.getElementById('sell').scrollIntoView()">
+        + Sell Item
+    </button>
+
+</header>
+
+<section class="hero" id="home">
+
+    <h1>
+        Buy Smart. Sell Easy.
+        <span>♻️</span>
+    </h1>
+
+    <p>
+        Find quality pre-owned products at affordable prices.
+    </p>
+
+    <div class="search">
+
+        <input
+        id="search"
+        placeholder="Search used products...">
+
+        <button onclick="searchProducts()">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+<section class="section" id="products">
+
+    <div class="title">
+
+        <h2>Latest Listings</h2>
+
+        <p>
+            Great products. Great prices.
+        </p>
+
+    </div>
+
+    <div class="products">
+
+        <div class="card" data-name="Laptop">
+
+            <div class="image">
+                💻
+            </div>
+
+            <div class="info">
+
+                <h3>
+                    Dell Laptop
+                </h3>
+
+                <p>
+                    Good condition • 8GB RAM
+                </p>
+
+                <div class="price">
+                    ₹28,000
+                </div>
+
+                <button class="contact"
+                onclick="contactSeller('Dell Laptop')">
+                    Contact Seller
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card" data-name="Bicycle">
+
+            <div class="image">
+                🚲
+            </div>
+
+            <div class="info">
+
+                <h3>
+                    Mountain Bicycle
+                </h3>
+
+                <p>
+                    Lightly used • Excellent condition
+                </p>
+
+                <div class="price">
+                    ₹8,500
+                </div>
+
+                <button class="contact"
+                onclick="contactSeller('Mountain Bicycle')">
+                    Contact Seller
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card" data-name="Phone">
+
+            <div class="image">
+                📱
+            </div>
+
+            <div class="info">
+
+                <h3>
+                    Samsung Smartphone
+                </h3>
+
+                <p>
+                    128GB • Good condition
+                </p>
+
+                <div class="price">
+                    ₹15,000
+                </div>
+
+                <button class="contact"
+                onclick="contactSeller('Samsung Smartphone')">
+                    Contact Seller
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card" data-name="Sofa">
+
+            <div class="image">
+                🛋️
+            </div>
+
+            <div class="info">
+
+                <h3>
+                    Modern Sofa
+                </h3>
+
+                <p>
+                    3-seater • Well maintained
+                </p>
+
+                <div class="price">
+                    ₹12,000
+                </div>
+
+                <button class="contact"
+                onclick="contactSeller('Modern Sofa')">
+                    Contact Seller
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card" data-name="Camera">
+
+            <div class="image">
+                📷
+            </div>
+
+            <div class="info">
+
+                <h3>
+                    DSLR Camera
+                </h3>
+
+                <p>
+                    24MP • Includes lens
+                </p>
+
+                <div class="price">
+                    ₹32,000
+                </div>
+
+                <button class="contact"
+                onclick="contactSeller('DSLR Camera')">
+                    Contact Seller
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card" data-name="Watch">
+
+            <div class="image">
+                ⌚
+            </div>
+
+            <div class="info">
+
+                <h3>
+                    Smart Watch
+                </h3>
+
+                <p>
+                    Fitness tracking • Excellent condition
+                </p>
+
+                <div class="price">
+                    ₹3,500
+                </div>
+
+                <button class="contact"
+                onclick="contactSeller('Smart Watch')">
+                    Contact Seller
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section form-section" id="sell">
+
+    <div class="form">
+
+        <h2>📦 Sell Your Product</h2>
+
+        <div class="group">
+
+            <label>Your Name</label>
+
+            <input id="seller"
+            placeholder="Enter your name">
+
+        </div>
+
+        <div class="group">
+
+            <label>Product Name</label>
+
+            <input id="product"
+            placeholder="Enter product name">
+
+        </div>
+
+        <div class="group">
+
+            <label>Price</label>
+
+            <input id="price"
+            placeholder="Enter selling price">
+
+        </div>
+
+        <div class="group">
+
+            <label>Category</label>
+
+            <select>
+                <option>Electronics</option>
+                <option>Furniture</option>
+                <option>Vehicles</option>
+                <option>Fashion</option>
+                <option>Other</option>
+            </select>
+
+        </div>
+
+        <button class="submit"
+        onclick="sellProduct()">
+            List Product
+        </button>
+
+    </div>
+
+</section>
+
+<footer id="contact">
+
+    <h2>♻️ ReMarket</h2>
+
+    <p>
+        Buy • Sell • Reuse
+    </p>
+
+    <p>
+        📞 +91 98765 43210
+    </p>
+
+    <p>
+        ✉️ support@remarket.com
+    </p>
+
+    <p>
+        © 2026 ReMarket
+    </p>
+
+</footer>
+
+<script>
+
+function searchProducts(){
+
+    let value=
+    document.getElementById("search")
+    .value.toLowerCase();
+
+    let cards=
+    document.querySelectorAll(".card");
+
+    cards.forEach(function(card){
+
+        let name=
+        card.dataset.name.toLowerCase();
+
+        if(name.includes(value)){
+            card.style.display="block";
+        }
+        else{
+            card.style.display="none";
+        }
+
+    });
+
+}
+
+function contactSeller(product){
+
+    alert(
+        "Seller contact request sent for: "+
+        product
+    );
+
+}
+
+function sellProduct(){
+
+    let seller=
+    document.getElementById("seller").value;
+
+    let product=
+    document.getElementById("product").value;
+
+    if(seller==="" || product===""){
+
+        alert("Please fill all details.");
+
+        return;
+
+    }
+
+    alert(
+        "✅ "+product+
+        " has been submitted successfully!"
+    );
+
+}
+
+</script>
+
+</body>
+</html>

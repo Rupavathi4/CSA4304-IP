@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TravelEase - Tourism</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+body{background:#f0f9ff;color:#172033}
+header{background:#075985;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:bold}.logo span{color:#7dd3fc}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:90px 8%;text-align:center;background:linear-gradient(120deg,#bae6fd,#e0f2fe)}
+.hero h1{font-size:52px}.hero span{color:#0284c7}
+.hero p{color:#475569;margin:15px 0}
+.section{padding:60px 7%}.title{text-align:center;margin-bottom:35px}
+.places{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.place{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px #0001;text-align:center}
+.pic{font-size:80px;background:#e0f2fe;padding:25px;border-radius:12px;margin-bottom:15px}
+.place p{color:#64748b;margin:10px}
+.price{color:#0284c7;font-size:20px;font-weight:bold;margin:10px}
+button{width:100%;padding:12px;background:#0284c7;color:white;border:0;border-radius:7px;cursor:pointer}
+.form-area{background:#e0f2fe}.form{max-width:600px;margin:auto;background:white;padding:35px;border-radius:15px}
+.field{margin-bottom:15px}label{display:block;font-weight:bold;margin-bottom:7px}
+input,select{width:100%;padding:12px;border:1px solid #ccc;border-radius:7px}
+.result{text-align:center;margin-top:15px}
+footer{background:#082f49;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">Travel<span>Ease</span> ✈️</div>
+<nav><a href="#home">Home</a><a href="#places">Destinations</a><a href="#booking">Booking</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Explore the <span>World</span> 🌍</h1>
+<p>Discover amazing destinations and create unforgettable memories.</p>
+</section>
+
+<section class="section" id="places">
+<div class="title"><h2>Popular Destinations</h2></div>
+<div class="places">
+<div class="place"><div class="pic">🏖️</div><h3>Goa</h3><p>Beaches and nightlife</p><div class="price">₹8,999</div><button onclick="book('Goa')">Book Trip</button></div>
+<div class="place"><div class="pic">🏔️</div><h3>Manali</h3><p>Mountains and adventure</p><div class="price">₹10,999</div><button onclick="book('Manali')">Book Trip</button></div>
+<div class="place"><div class="pic">🏰</div><h3>Rajasthan</h3><p>Royal heritage</p><div class="price">₹12,999</div><button onclick="book('Rajasthan')">Book Trip</button></div>
+<div class="place"><div class="pic">🌴</div><h3>Kerala</h3><p>Backwaters and nature</p><div class="price">₹9,999</div><button onclick="book('Kerala')">Book Trip</button></div>
+</div>
+</section>
+
+<section class="section form-area" id="booking">
+<div class="form">
+<h2>✈️ Book Your Trip</h2>
+<div class="field"><label>Name</label><input id="name"></div>
+<div class="field"><label>Destination</label><select id="destination"><option>Goa</option><option>Manali</option><option>Rajasthan</option><option>Kerala</option></select></div>
+<div class="field"><label>Travel Date</label><input type="date" id="date"></div>
+<div class="field"><label>Number of Travelers</label><input type="number" id="people" value="1"></div>
+<button onclick="confirmBooking()">Confirm Booking</button>
+<div class="result" id="result"></div>
+</div>
+</section>
+
+<footer><h2>TravelEase</h2><p>Explore. Experience. Enjoy.</p><p>© 2026 TravelEase</p></footer>
+
+<script>
+function book(place){
+document.getElementById("destination").value=place;
+document.getElementById("booking").scrollIntoView();
+}
+function confirmBooking(){
+let n=document.getElementById("name").value;
+let d=document.getElementById("date").value;
+if(!n||!d){alert("Please enter your details");return}
+document.getElementById("result").innerHTML="✅ Trip booked successfully! We will contact you soon.";
+}
+</script>
+</body>
+</html>

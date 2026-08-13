@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>DriveEasy - Vehicle Rental</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+}
+
+header{
+background:#111827;
+color:white;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.logo span{
+color:#f59e0b;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+.hero{
+padding:75px 8%;
+background:linear-gradient(120deg,#fef3c7,#f8fafc);
+text-align:center;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.hero span{
+color:#d97706;
+}
+
+.hero p{
+color:#64748b;
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+border:0;
+background:#d97706;
+color:white;
+padding:13px 25px;
+border-radius:7px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.section{
+padding:60px 7%;
+}
+
+.title{
+text-align:center;
+margin-bottom:35px;
+}
+
+.title h2{
+font-size:34px;
+}
+
+.vehicles{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.vehicle{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 20px #00000010;
+transition:.3s;
+}
+
+.vehicle:hover{
+transform:translateY(-6px);
+}
+
+.image{
+height:220px;
+background:#fef3c7;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:110px;
+}
+
+.info{
+padding:20px;
+}
+
+.info p{
+color:#64748b;
+margin:9px 0;
+}
+
+.price{
+font-size:21px;
+font-weight:bold;
+color:#d97706;
+margin:12px 0;
+}
+
+.rent{
+width:100%;
+padding:12px;
+border:0;
+background:#111827;
+color:white;
+border-radius:7px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.form-area{
+background:#fef3c7;
+}
+
+.form{
+max-width:650px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:15px;
+}
+
+.form h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.group{
+margin-bottom:15px;
+}
+
+.group label{
+display:block;
+font-weight:bold;
+margin-bottom:7px;
+}
+
+.group input,
+.group select{
+width:100%;
+padding:12px;
+border:1px solid #cbd5e1;
+border-radius:7px;
+}
+
+.confirm{
+width:100%;
+padding:14px;
+border:0;
+background:#d97706;
+color:white;
+border-radius:7px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#fffbeb;
+border-radius:7px;
+text-align:center;
+}
+
+footer{
+background:#030712;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+footer p{
+color:#9ca3af;
+margin:8px;
+}
+
+@media(max-width:700px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Drive<span>Easy</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#vehicles">Vehicles</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<h1>
+Your Journey,
+<span>Your Vehicle</span> 🚗
+</h1>
+
+<p>
+Rent cars, bikes and SUVs easily
+for your next journey.
+</p>
+
+<button class="btn"
+onclick="document.getElementById('vehicles').scrollIntoView()">
+
+View Vehicles
+
+</button>
+
+</section>
+
+<section class="section" id="vehicles">
+
+<div class="title">
+
+<h2>Available Vehicles</h2>
+
+<p>
+Choose a vehicle that fits your journey.
+</p>
+
+</div>
+
+<div class="vehicles">
+
+<div class="vehicle">
+
+<div class="image">
+🚗
+</div>
+
+<div class="info">
+
+<h3>Hyundai i20</h3>
+
+<p>Automatic • 5 Seats • Petrol</p>
+
+<div class="price">
+₹1,800 / Day
+</div>
+
+<button class="rent"
+onclick="selectVehicle('Hyundai i20')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+<div class="vehicle">
+
+<div class="image">
+🚙
+</div>
+
+<div class="info">
+
+<h3>Mahindra XUV700</h3>
+
+<p>Automatic • 7 Seats • Diesel</p>
+
+<div class="price">
+₹3,500 / Day
+</div>
+
+<button class="rent"
+onclick="selectVehicle('Mahindra XUV700')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+<div class="vehicle">
+
+<div class="image">
+🏍️
+</div>
+
+<div class="info">
+
+<h3>Royal Enfield</h3>
+
+<p>350cc • 2 Seats • Petrol</p>
+
+<div class="price">
+₹900 / Day
+</div>
+
+<button class="rent"
+onclick="selectVehicle('Royal Enfield')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+<div class="vehicle">
+
+<div class="image">
+🚐
+</div>
+
+<div class="info">
+
+<h3>Toyota Innova</h3>
+
+<p>Automatic • 7 Seats • Diesel</p>
+
+<div class="price">
+₹3,000 / Day
+</div>
+
+<button class="rent"
+onclick="selectVehicle('Toyota Innova')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+<div class="vehicle">
+
+<div class="image">
+🚘
+</div>
+
+<div class="info">
+
+<h3>Honda City</h3>
+
+<p>Automatic • 5 Seats • Petrol</p>
+
+<div class="price">
+₹2,200 / Day
+</div>
+
+<button class="rent"
+onclick="selectVehicle('Honda City')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+<div class="vehicle">
+
+<div class="image">
+🛵
+</div>
+
+<div class="info">
+
+<h3>Honda Activa</h3>
+
+<p>Automatic • 2 Seats • Petrol</p>
+
+<div class="price">
+₹600 / Day
+</div>
+
+<button class="rent"
+onclick="selectVehicle('Honda Activa')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section form-area"
+id="booking">
+
+<div class="form">
+
+<h2>🚗 Book Your Vehicle</h2>
+
+<div class="group">
+
+<label>Customer Name</label>
+
+<input id="name"
+placeholder="Enter your name">
+
+</div>
+
+<div class="group">
+
+<label>Phone Number</label>
+
+<input id="phone"
+placeholder="Enter phone number">
+
+</div>
+
+<div class="group">
+
+<label>Vehicle</label>
+
+<select id="vehicle">
+
+<option>Hyundai i20</option>
+<option>Mahindra XUV700</option>
+<option>Royal Enfield</option>
+<option>Toyota Innova</option>
+<option>Honda City</option>
+<option>Honda Activa</option>
+
+</select>
+
+</div>
+
+<div class="group">
+
+<label>Pickup Date</label>
+
+<input id="date" type="date">
+
+</div>
+
+<div class="group">
+
+<label>Number of Days</label>
+
+<input id="days"
+type="number"
+min="1"
+value="1">
+
+</div>
+
+<button class="confirm"
+onclick="bookVehicle()">
+
+Confirm Booking
+
+</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h2>DriveEasy</h2>
+
+<p>🚗 Easy • Affordable • Reliable</p>
+
+<p>📞 +91 98765 43210</p>
+
+<p>✉️ support@driveeasy.com</p>
+
+<p>© 2026 DriveEasy Vehicle Rentals</p>
+
+</footer>
+
+<script>
+
+let selectedVehicle="";
+
+function selectVehicle(name){
+
+selectedVehicle=name;
+
+document.getElementById("vehicle").value=name;
+
+document.getElementById("booking")
+.scrollIntoView();
+
+}
+
+function bookVehicle(){
+
+let name=
+document.getElementById("name").value;
+
+let phone=
+document.getElementById("phone").value;
+
+let vehicle=
+document.getElementById("vehicle").value;
+
+let date=
+document.getElementById("date").value;
+
+let days=
+document.getElementById("days").value;
+
+if(
+name==="" ||
+phone==="" ||
+date===""
+){
+
+alert("Please fill all booking details.");
+
+return;
+
+}
+
+document.getElementById("result").innerHTML=
+
+"✅ Booking Confirmed!<br><br>"+
+"Customer: "+name+
+"<br>Vehicle: "+vehicle+
+"<br>Pickup Date: "+date+
+"<br>Rental Period: "+days+" day(s)";
+
+}
+
+</script>
+
+</body>
+</html>

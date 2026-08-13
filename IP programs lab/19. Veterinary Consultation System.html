@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>PetCare - Veterinary Consultation</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial;
+}
+
+body{
+background:#f0fdf4;
+color:#1f2937;
+}
+
+header{
+background:#166534;
+color:white;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.logo span{
+color:#86efac;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+.hero{
+padding:70px 8%;
+background:linear-gradient(120deg,#dcfce7,#f0fdf4);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero span{
+color:#16a34a;
+}
+
+.hero p{
+color:#64748b;
+font-size:18px;
+line-height:1.6;
+margin-bottom:25px;
+}
+
+.hero-icon{
+font-size:150px;
+}
+
+.btn{
+border:0;
+background:#16a34a;
+color:white;
+padding:13px 25px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.section{
+padding:60px 7%;
+}
+
+.title{
+text-align:center;
+margin-bottom:35px;
+}
+
+.title h2{
+font-size:34px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px #00000010;
+}
+
+.icon{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.card p{
+color:#64748b;
+margin-top:10px;
+line-height:1.5;
+}
+
+.form-area{
+background:#dcfce7;
+}
+
+.form{
+max-width:650px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:15px;
+}
+
+.form h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.group{
+margin-bottom:15px;
+}
+
+.group label{
+display:block;
+font-weight:bold;
+margin-bottom:7px;
+}
+
+.group input,
+.group select,
+.group textarea{
+width:100%;
+padding:12px;
+border:1px solid #cbd5e1;
+border-radius:7px;
+}
+
+.group textarea{
+height:90px;
+resize:none;
+}
+
+.submit{
+width:100%;
+padding:14px;
+border:0;
+background:#166534;
+color:white;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#f0fdf4;
+text-align:center;
+border-radius:7px;
+}
+
+footer{
+background:#052e16;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+footer p{
+color:#bbf7d0;
+margin:8px;
+}
+
+@media(max-width:700px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-icon{
+margin-top:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Pet<span>Care</span> 🐾
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#doctors">Doctors</a>
+<a href="#appointment">Appointment</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>
+Healthy Pets,
+<span>Happy Families</span> 🐶
+</h1>
+
+<p>
+Connect with qualified veterinary doctors
+for online consultations and pet care advice.
+</p>
+
+<button class="btn"
+onclick="document.getElementById('appointment').scrollIntoView()">
+Book Consultation
+</button>
+
+</div>
+
+<div class="hero-icon">
+🐕
+</div>
+
+</section>
+
+<section class="section" id="services">
+
+<div class="title">
+<h2>Our Veterinary Services</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🩺</div>
+<h3>Online Consultation</h3>
+<p>
+Talk with veterinary doctors online.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💊</div>
+<h3>Pet Medication</h3>
+<p>
+Get guidance about pet medications.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💉</div>
+<h3>Vaccination</h3>
+<p>
+Keep your pets protected with vaccinations.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🍖</div>
+<h3>Nutrition Advice</h3>
+<p>
+Get personalized pet nutrition guidance.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section form-area"
+id="appointment">
+
+<div class="form">
+
+<h2>🐾 Book Veterinary Consultation</h2>
+
+<div class="group">
+
+<label>Owner Name</label>
+
+<input id="owner"
+placeholder="Enter your name">
+
+</div>
+
+<div class="group">
+
+<label>Pet Name</label>
+
+<input id="pet"
+placeholder="Enter pet name">
+
+</div>
+
+<div class="group">
+
+<label>Pet Type</label>
+
+<select id="type">
+
+<option>Dog</option>
+<option>Cat</option>
+<option>Bird</option>
+<option>Rabbit</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="group">
+
+<label>Doctor</label>
+
+<select>
+
+<option>Dr. Anjali - General Vet</option>
+<option>Dr. Rahul - Pet Surgery</option>
+<option>Dr. Priya - Nutrition</option>
+
+</select>
+
+</div>
+
+<div class="group">
+
+<label>Problem</label>
+
+<textarea id="problem"
+placeholder="Describe your pet's problem"></textarea>
+
+</div>
+
+<button class="submit"
+onclick="book()">
+
+Book Consultation
+
+</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</section>
+
+<footer id="doctors">
+
+<h2>PetCare Veterinary</h2>
+
+<p>🐶 Caring For Every Pet</p>
+<p>📞 +91 98765 43210</p>
+<p>✉️ help@petcare.com</p>
+<p>© 2026 PetCare</p>
+
+</footer>
+
+<script>
+
+function book(){
+
+let owner=
+document.getElementById("owner").value;
+
+let pet=
+document.getElementById("pet").value;
+
+let problem=
+document.getElementById("problem").value;
+
+if(owner==="" || pet==="" || problem===""){
+
+alert("Please fill all details.");
+
+return;
+
+}
+
+document.getElementById("result").innerHTML=
+
+"✅ Consultation booked successfully!<br><br>"+
+"Owner: "+owner+
+"<br>Pet: "+pet+
+"<br>Our veterinarian will contact you shortly.";
+
+}
+
+</script>
+
+</body>
+</html>

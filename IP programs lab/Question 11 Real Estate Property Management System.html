@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PrimeEstate - Real Estate</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8fafc;
+    color:#1e293b;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:9px;
+    font-size:14px;
+}
+
+/* HEADER */
+
+header{
+    background:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:#0f172a;
+}
+
+.logo span{
+    color:#2563eb;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#334155;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+.header-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:11px 20px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.header-btn:hover{
+    background:#1d4ed8;
+}
+
+/* HERO */
+
+.hero{
+    min-height:540px;
+    padding:80px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:
+    linear-gradient(120deg,#eff6ff,#f8fafc);
+}
+
+.hero-content{
+    width:55%;
+}
+
+.hero-label{
+    color:#2563eb;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:54px;
+    line-height:1.15;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    color:#64748b;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:14px 25px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.primary-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+}
+
+.secondary-btn{
+    border:2px solid #2563eb;
+    background:white;
+    color:#2563eb;
+}
+
+.hero-house{
+    width:40%;
+    text-align:center;
+    font-size:170px;
+}
+
+/* SEARCH */
+
+.search-section{
+    background:white;
+    margin:-35px 8% 0;
+    position:relative;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.search-section h3{
+    margin-bottom:15px;
+}
+
+.search-box{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto;
+    gap:12px;
+}
+
+.search-box input,
+.search-box select{
+    padding:13px;
+    border:1px solid #cbd5e1;
+    border-radius:7px;
+    outline:none;
+}
+
+.search-box input:focus,
+.search-box select:focus{
+    border-color:#2563eb;
+}
+
+.search-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:13px 25px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* SECTION */
+
+.section{
+    padding:70px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.title h2{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.title p{
+    color:#64748b;
+}
+
+/* PROPERTY CARDS */
+
+.property-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(270px,1fr));
+    gap:25px;
+}
+
+.property-card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #e2e8f0;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.property-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.property-image{
+    height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+    background:#eff6ff;
+    position:relative;
+}
+
+.property-badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:#2563eb;
+    color:white;
+    padding:6px 10px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.favorite{
+    position:absolute;
+    top:12px;
+    right:12px;
+    border:none;
+    background:white;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:19px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.favorite.active{
+    color:#ef4444;
+}
+
+.property-info{
+    padding:20px;
+}
+
+.property-type{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.property-info h3{
+    margin:8px 0;
+}
+
+.location{
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.details{
+    display:flex;
+    gap:15px;
+    color:#64748b;
+    font-size:13px;
+    padding:12px 0;
+    border-top:1px solid #e2e8f0;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.price{
+    font-size:21px;
+    font-weight:bold;
+    color:#0f172a;
+    margin:15px 0;
+}
+
+.view-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:7px;
+    background:#0f172a;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.view-btn:hover{
+    background:#2563eb;
+}
+
+/* SERVICES */
+
+.services{
+    background:#0f172a;
+    color:white;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.service{
+    background:#1e293b;
+    padding:30px;
+    border-radius:14px;
+    text-align:center;
+}
+
+.service-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.service h3{
+    margin-bottom:10px;
+}
+
+.service p{
+    color:#cbd5e1;
+    line-height:1.5;
+    font-size:14px;
+}
+
+/* AGENTS */
+
+.agent-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+}
+
+.agent{
+    background:white;
+    text-align:center;
+    padding:30px;
+    border-radius:14px;
+    border:1px solid #e2e8f0;
+}
+
+.agent-photo{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#dbeafe;
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.agent p{
+    color:#64748b;
+    font-size:14px;
+    margin:8px;
+}
+
+/* FORM */
+
+.form-section{
+    background:#eff6ff;
+}
+
+.form{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.form h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:7px;
+    outline:none;
+}
+
+.form-group textarea{
+    height:100px;
+    resize:none;
+}
+
+.submit-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.65);
+    z-index:3000;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:white;
+    width:90%;
+    max-width:500px;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.modal-icon{
+    font-size:60px;
+}
+
+.modal-box h2{
+    margin:15px 0;
+    color:#166534;
+}
+
+.modal-box p{
+    color:#64748b;
+    line-height:1.6;
+}
+
+.close-btn{
+    margin-top:20px;
+    padding:11px 25px;
+    border:none;
+    background:#0f172a;
+    color:white;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#020617;
+    color:white;
+    text-align:center;
+    padding:45px 7%;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#94a3b8;
+    margin:8px;
+}
+
+.footer-icons{
+    font-size:27px;
+    margin:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero-house{
+        width:100%;
+        font-size:110px;
+        margin-top:30px;
+    }
+
+    .search-box{
+        grid-template-columns:1fr;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+    🏠 Find Your Dream Property With PrimeEstate | Trusted Real Estate Services
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        Prime<span>Estate</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#properties">Properties</a>
+        <a href="#services">Services</a>
+        <a href="#agents">Agents</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button
+        class="header-btn"
+        onclick="showForm()">
+        List Property
+    </button>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            PREMIUM REAL ESTATE
+        </div>
+
+        <h1>
+            Find A Place
+            <span>You Can Call Home.</span>
+        </h1>
+
+        <p>
+            Discover premium apartments, houses,
+            villas and commercial properties in
+            the best locations.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-btn"
+                onclick="scrollToProperties()">
+                🔍 Explore Properties
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="showForm()">
+                📞 Contact Agent
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-house">
+        🏡
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-section">
+
+    <h3>
+        🔎 Search Properties
+    </h3>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by property name or location">
+
+        <select id="typeFilter">
+
+            <option value="all">
+                Property Type
+            </option>
+
+            <option value="Apartment">
+                Apartment
+            </option>
+
+            <option value="Villa">
+                Villa
+            </option>
+
+            <option value="House">
+                House
+            </option>
+
+            <option value="Commercial">
+                Commercial
+            </option>
+
+        </select>
+
+        <select id="purposeFilter">
+
+            <option value="all">
+                Buy / Rent
+            </option>
+
+            <option value="Sale">
+                For Sale
+            </option>
+
+            <option value="Rent">
+                For Rent
+            </option>
+
+        </select>
+
+        <button
+            class="search-btn"
+            onclick="searchProperties()">
+
+            Search
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PROPERTIES -->
+
+<section
+    class="section"
+    id="properties">
+
+    <div class="title">
+
+        <h2>
+            Featured Properties
+        </h2>
+
+        <p>
+            Explore our handpicked properties
+        </p>
+
+    </div>
+
+
+    <div
+        class="property-grid"
+        id="propertyGrid">
+
+
+        <!-- PROPERTY 1 -->
+
+        <div
+            class="property-card"
+            data-type="Apartment"
+            data-purpose="Sale"
+            data-name="Luxury Apartment Chennai">
+
+            <div class="property-image">
+
+                <span class="property-badge">
+                    FOR SALE
+                </span>
+
+                <button
+                    class="favorite"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
+
+                🏢
+
+            </div>
+
+            <div class="property-info">
+
+                <div class="property-type">
+                    Apartment
+                </div>
+
+                <h3>
+                    Luxury City Apartment
+                </h3>
+
+                <div class="location">
+                    📍 Chennai, Tamil Nadu
+                </div>
+
+                <div class="details">
+                    🛏 3 Beds
+                    🚿 2 Baths
+                    📐 1,850 sq.ft
+                </div>
+
+                <div class="price">
+                    ₹85 Lakhs
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="viewProperty(
+                    'Luxury City Apartment',
+                    'Chennai, Tamil Nadu',
+                    '₹85 Lakhs')">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROPERTY 2 -->
+
+        <div
+            class="property-card"
+            data-type="Villa"
+            data-purpose="Sale"
+            data-name="Premium Villa Bangalore">
+
+            <div class="property-image">
+
+                <span class="property-badge">
+                    FOR SALE
+                </span>
+
+                <button
+                    class="favorite"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
+
+                🏘️
+
+            </div>
+
+            <div class="property-info">
+
+                <div class="property-type">
+                    Villa
+                </div>
+
+                <h3>
+                    Premium Garden Villa
+                </h3>
+
+                <div class="location">
+                    📍 Bangalore, Karnataka
+                </div>
+
+                <div class="details">
+                    🛏 4 Beds
+                    🚿 3 Baths
+                    📐 2,700 sq.ft
+                </div>
+
+                <div class="price">
+                    ₹1.65 Crore
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="viewProperty(
+                    'Premium Garden Villa',
+                    'Bangalore, Karnataka',
+                    '₹1.65 Crore')">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROPERTY 3 -->
+
+        <div
+            class="property-card"
+            data-type="Apartment"
+            data-purpose="Rent"
+            data-name="Modern Apartment Hyderabad">
+
+            <div class="property-image">
+
+                <span class="property-badge">
+                    FOR RENT
+                </span>
+
+                <button
+                    class="favorite"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
+
+                🏙️
+
+            </div>
+
+            <div class="property-info">
+
+                <div class="property-type">
+                    Apartment
+                </div>
+
+                <h3>
+                    Modern Family Apartment
+                </h3>
+
+                <div class="location">
+                    📍 Hyderabad, Telangana
+                </div>
+
+                <div class="details">
+                    🛏 2 Beds
+                    🚿 2 Baths
+                    📐 1,300 sq.ft
+                </div>
+
+                <div class="price">
+                    ₹28,000 / Month
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="viewProperty(
+                    'Modern Family Apartment',
+                    'Hyderabad, Telangana',
+                    '₹28,000 / Month')">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROPERTY 4 -->
+
+        <div
+            class="property-card"
+            data-type="House"
+            data-purpose="Sale"
+            data-name="Independent House Coimbatore">
+
+            <div class="property-image">
+
+                <span class="property-badge">
+                    FOR SALE
+                </span>
+
+                <button
+                    class="favorite"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
+
+                🏠
+
+            </div>
+
+            <div class="property-info">
+
+                <div class="property-type">
+                    House
+                </div>
+
+                <h3>
+                    Independent Family House
+                </h3>
+
+                <div class="location">
+                    📍 Coimbatore, Tamil Nadu
+                </div>
+
+                <div class="details">
+                    🛏 3 Beds
+                    🚿 2 Baths
+                    📐 2,100 sq.ft
+                </div>
+
+                <div class="price">
+                    ₹72 Lakhs
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="viewProperty(
+                    'Independent Family House',
+                    'Coimbatore, Tamil Nadu',
+                    '₹72 Lakhs')">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROPERTY 5 -->
+
+        <div
+            class="property-card"
+            data-type="Commercial"
+            data-purpose="Rent"
+            data-name="Commercial Office Chennai">
+
+            <div class="property-image">
+
+                <span class="property-badge">
+                    FOR RENT
+                </span>
+
+                <button
+                    class="favorite"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
+
+                🏢
+
+            </div>
+
+            <div class="property-info">
+
+                <div class="property-type">
+                    Commercial
+                </div>
+
+                <h3>
+                    Premium Office Space
+                </h3>
+
+                <div class="location">
+                    📍 OMR, Chennai
+                </div>
+
+                <div class="details">
+                    🪑 Furnished
+                    🚗 Parking
+                    📐 2,500 sq.ft
+                </div>
+
+                <div class="price">
+                    ₹95,000 / Month
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="viewProperty(
+                    'Premium Office Space',
+                    'OMR, Chennai',
+                    '₹95,000 / Month')">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROPERTY 6 -->
+
+        <div
+            class="property-card"
+            data-type="Villa"
+            data-purpose="Rent"
+            data-name="Beach Villa Pondicherry">
+
+            <div class="property-image">
+
+                <span class="property-badge">
+                    FOR RENT
+                </span>
+
+                <button
+                    class="favorite"
+                    onclick="favorite(this)">
+                    ♡
+                </button>
+
+                🌴
+
+            </div>
+
+            <div class="property-info">
+
+                <div class="property-type">
+                    Villa
+                </div>
+
+                <h3>
+                    Luxury Beach Villa
+                </h3>
+
+                <div class="location">
+                    📍 Pondicherry
+                </div>
+
+                <div class="details">
+                    🛏 4 Beds
+                    🚿 4 Baths
+                    📐 3,200 sq.ft
+                </div>
+
+                <div class="price">
+                    ₹65,000 / Month
+                </div>
+
+                <button
+                    class="view-btn"
+                    onclick="viewProperty(
+                    'Luxury Beach Villa',
+                    'Pondicherry',
+                    '₹65,000 / Month')">
+
+                    View Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section
+    class="section services"
+    id="services">
+
+    <div class="title">
+
+        <h2>
+            Our Services
+        </h2>
+
+        <p style="color:#cbd5e1;">
+            Complete real estate solutions
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service">
+
+            <div class="service-icon">
+                🏠
+            </div>
+
+            <h3>
+                Buy Property
+            </h3>
+
+            <p>
+                Find residential and commercial
+                properties that match your needs.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                🔑
+            </div>
+
+            <h3>
+                Rent Property
+            </h3>
+
+            <p>
+                Discover comfortable homes and
+                offices available for rent.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                💰
+            </div>
+
+            <h3>
+                Sell Property
+            </h3>
+
+            <p>
+                List your property and reach
+                thousands of potential buyers.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">
+                📋
+            </div>
+
+            <h3>
+                Property Management
+            </h3>
+
+            <p>
+                Professional management services
+                for your valuable properties.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AGENTS -->
+
+<section
+    class="section"
+    id="agents">
+
+    <div class="title">
+
+        <h2>
+            Meet Our Agents
+        </h2>
+
+        <p>
+            Experienced professionals ready to help
+        </p>
+
+    </div>
+
+
+    <div class="agent-grid">
+
+        <div class="agent">
+
+            <div class="agent-photo">
+                👨‍💼
+            </div>
+
+            <h3>
+                Arjun Kumar
+            </h3>
+
+            <p>
+                Senior Property Consultant
+            </p>
+
+            <p>
+                ⭐ 4.9 Rating
+            </p>
+
+        </div>
+
+
+        <div class="agent">
+
+            <div class="agent-photo">
+                👩‍💼
+            </div>
+
+            <h3>
+                Priya Sharma
+            </h3>
+
+            <p>
+                Residential Property Expert
+            </p>
+
+            <p>
+                ⭐ 4.8 Rating
+            </p>
+
+        </div>
+
+
+        <div class="agent">
+
+            <div class="agent-photo">
+                👨‍💼
+            </div>
+
+            <h3>
+                Rahul Verma
+            </h3>
+
+            <p>
+                Commercial Property Expert
+            </p>
+
+            <p>
+                ⭐ 4.9 Rating
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT / LIST PROPERTY -->
+
+<section
+    class="section form-section"
+    id="contact">
+
+    <div class="form">
+
+        <h2>
+            🏠 List Your Property
+        </h2>
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="ownerName"
+                    placeholder="Enter your name">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="text"
+                    id="phone"
+                    placeholder="Enter phone number">
+
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>
+                    Property Type
+                </label>
+
+                <select id="propertyType">
+
+                    <option>
+                        Apartment
+                    </option>
+
+                    <option>
+                        Villa
+                    </option>
+
+                    <option>
+                        House
+                    </option>
+
+                    <option>
+                        Commercial
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Purpose
+                </label>
+
+                <select id="propertyPurpose">
+
+                    <option>
+                        Sell
+                    </option>
+
+                    <option>
+                        Rent
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Property Location
+            </label>
+
+            <input
+                type="text"
+                id="propertyLocation"
+                placeholder="Enter property location">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Property Details
+            </label>
+
+            <textarea
+                id="propertyDetails"
+                placeholder="Describe your property..."></textarea>
+
+        </div>
+
+
+        <button
+            class="submit-btn"
+            onclick="submitProperty()">
+
+            Submit Property
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MODAL -->
+
+<div
+    class="modal"
+    id="modal">
+
+    <div class="modal-box">
+
+        <div
+            class="modal-icon"
+            id="modalIcon">
+            🎉
+        </div>
+
+        <h2 id="modalTitle">
+            Success!
+        </h2>
+
+        <p id="modalMessage">
+            Your request has been submitted successfully.
+        </p>
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        PrimeEstate
+    </h2>
+
+    <p>
+        Find. Buy. Sell. Rent. Manage.
+    </p>
+
+    <div class="footer-icons">
+        🏠 🏢 🏡 🔑
+    </div>
+
+    <p>
+        📞 +91 98765 43210
+    </p>
+
+    <p>
+        ✉️ support@primeestate.com
+    </p>
+
+    <p>
+        📍 Chennai, Tamil Nadu
+    </p>
+
+    <p style="margin-top:20px;">
+        © 2026 PrimeEstate. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* SCROLL TO PROPERTIES */
+
+function scrollToProperties(){
+
+    document
+    .getElementById("properties")
+    .scrollIntoView();
+
+}
+
+
+/* FAVORITE */
+
+function favorite(button){
+
+    button.classList.toggle("active");
+
+    if(button.classList.contains("active")){
+
+        button.innerHTML="♥";
+
+    }
+    else{
+
+        button.innerHTML="♡";
+
+    }
+
+}
+
+
+/* SEARCH PROPERTIES */
+
+function searchProperties(){
+
+    let search =
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+    let type =
+    document
+    .getElementById("typeFilter")
+    .value;
+
+    let purpose =
+    document
+    .getElementById("purposeFilter")
+    .value;
+
+    let cards =
+    document.querySelectorAll(".property-card");
+
+    let found=0;
+
+    cards.forEach(function(card){
+
+        let name =
+        card.dataset.name.toLowerCase();
+
+        let cardType =
+        card.dataset.type;
+
+        let cardPurpose =
+        card.dataset.purpose;
+
+        let matchName =
+        name.includes(search);
+
+        let matchType =
+        type==="all" ||
+        cardType===type;
+
+        let matchPurpose =
+        purpose==="all" ||
+        cardPurpose===purpose;
+
+        if(
+            matchName &&
+            matchType &&
+            matchPurpose
+        ){
+
+            card.style.display="block";
+            found++;
+
+        }
+        else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+
+    if(found===0){
+
+        alert(
+            "No matching properties found."
+        );
+
+    }
+
+}
+
+
+/* VIEW PROPERTY */
+
+function viewProperty(
+    name,
+    location,
+    price
+){
+
+    document
+    .getElementById("modalIcon")
+    .innerText="🏡";
+
+    document
+    .getElementById("modalTitle")
+    .innerText=name;
+
+    document
+    .getElementById("modalMessage")
+    .innerText=
+    "Location: "+location+
+    " | Price: "+price+
+    ". Our property agent will contact you for more details.";
+
+    document
+    .getElementById("modal")
+    .style.display="flex";
+
+}
+
+
+/* SHOW FORM */
+
+function showForm(){
+
+    document
+    .getElementById("contact")
+    .scrollIntoView();
+
+}
+
+
+/* SUBMIT PROPERTY */
+
+function submitProperty(){
+
+    let name =
+    document
+    .getElementById("ownerName")
+    .value;
+
+    let phone =
+    document
+    .getElementById("phone")
+    .value;
+
+    let location =
+    document
+    .getElementById("propertyLocation")
+    .value;
+
+
+    if(
+        name==="" ||
+        phone==="" ||
+        location===""
+    ){
+
+        alert(
+            "Please fill in all required details."
+        );
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("modalIcon")
+    .innerText="✅";
+
+    document
+    .getElementById("modalTitle")
+    .innerText=
+    "Property Submitted!";
+
+    document
+    .getElementById("modalMessage")
+    .innerText=
+    "Thank you "+name+
+    ". Your property request has been submitted successfully. Our agent will contact you soon.";
+
+    document
+    .getElementById("modal")
+    .style.display="flex";
+
+
+    document
+    .getElementById("ownerName")
+    .value="";
+
+    document
+    .getElementById("phone")
+    .value="";
+
+    document
+    .getElementById("propertyLocation")
+    .value="";
+
+    document
+    .getElementById("propertyDetails")
+    .value="";
+
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    document
+    .getElementById("modal")
+    .style.display="none";
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+window.onclick=function(event){
+
+    let modal =
+    document.getElementById("modal");
+
+    if(event.target===modal){
+
+        modal.style.display="none";
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>

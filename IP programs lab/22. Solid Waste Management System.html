@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CleanCity - Waste Management</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+body{background:#f0fdf4;color:#1f2937}
+header{background:#166534;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:bold}.logo span{color:#86efac}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:70px 8%;text-align:center;background:linear-gradient(120deg,#dcfce7,#ecfccb)}
+.hero h1{font-size:48px}.hero span{color:#16a34a}
+.hero p{color:#64748b;margin:15px 0}
+.section{padding:60px 7%}.title{text-align:center;margin-bottom:35px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.card{background:white;padding:30px;text-align:center;border-radius:14px;box-shadow:0 5px 20px #0001}
+.icon{font-size:50px;margin-bottom:15px}.card p{color:#64748b;margin-top:10px}
+.form{max-width:600px;margin:auto;background:white;padding:35px;border-radius:15px}
+.form-area{background:#dcfce7}.group{margin-bottom:15px}
+label{display:block;font-weight:bold;margin-bottom:7px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:7px}
+textarea{height:100px}
+button{width:100%;padding:13px;background:#15803d;color:white;border:0;border-radius:7px;cursor:pointer}
+.result{text-align:center;margin-top:15px}
+footer{background:#052e16;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">Clean<span>City</span> ♻️</div>
+<nav><a href="#home">Home</a><a href="#services">Services</a><a href="#report">Report</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>Keep Our City <span>Clean</span> 🌱</h1>
+<p>Smart waste collection and management system.</p>
+</section>
+
+<section class="section" id="services">
+<div class="title"><h2>Waste Management Services</h2></div>
+<div class="cards">
+<div class="card"><div class="icon">♻️</div><h3>Recycling</h3><p>Separate recyclable waste.</p></div>
+<div class="card"><div class="icon">🗑️</div><h3>Waste Collection</h3><p>Schedule doorstep collection.</p></div>
+<div class="card"><div class="icon">🌱</div><h3>Organic Waste</h3><p>Convert organic waste to compost.</p></div>
+<div class="card"><div class="icon">🚛</div><h3>Garbage Pickup</h3><p>Track collection vehicles.</p></div>
+</div>
+</section>
+
+<section class="section form-area" id="report">
+<div class="form">
+<h2>Report Waste Issue</h2>
+<div class="group"><label>Name</label><input id="name"></div>
+<div class="group"><label>Location</label><input id="location" placeholder="Enter location"></div>
+<div class="group"><label>Issue</label><select><option>Garbage not collected</option><option>Overflowing bin</option><option>Illegal dumping</option></select></div>
+<div class="group"><label>Description</label><textarea id="desc"></textarea></div>
+<button onclick="report()">Submit Report</button>
+<div class="result" id="result"></div>
+</div>
+</section>
+
+<footer><h2>CleanCity</h2><p>♻️ Clean City, Green City</p><p>© 2026 CleanCity</p></footer>
+
+<script>
+function report(){
+let n=document.getElementById("name").value;
+let l=document.getElementById("location").value;
+if(!n||!l){alert("Please fill required details");return}
+document.getElementById("result").innerHTML="✅ Report submitted successfully!<br>Reference ID: WC"+Date.now();
+}
+</script>
+</body>
+</html>

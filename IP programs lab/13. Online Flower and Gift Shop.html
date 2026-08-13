@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Bloom & Gift</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial;
+}
+
+body{
+    background:#fff7f9;
+    color:#3f172e;
+}
+
+header{
+    background:#831843;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+}
+
+.cart{
+    background:#fce7f3;
+    color:#831843;
+    padding:10px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.hero{
+    padding:75px 8%;
+    text-align:center;
+    background:linear-gradient(120deg,#fce7f3,#fff1f2);
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero span{
+    color:#db2777;
+}
+
+.hero p{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.btn{
+    border:0;
+    background:#db2777;
+    color:white;
+    padding:13px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.section{
+    padding:60px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h2{
+    font-size:34px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px #00000010;
+    text-align:center;
+}
+
+.product-image{
+    height:220px;
+    background:#fce7f3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:100px;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info p{
+    color:#6b7280;
+    margin:10px;
+}
+
+.price{
+    font-weight:bold;
+    color:#be185d;
+    font-size:20px;
+    margin:10px;
+}
+
+.product button{
+    width:100%;
+    padding:12px;
+    border:0;
+    background:#831843;
+    color:white;
+    cursor:pointer;
+}
+
+.categories{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.categories button{
+    border:1px solid #f9a8d4;
+    background:white;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+footer{
+    background:#500724;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🌸 Bloom & Gift
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Flowers</a>
+        <a href="#gifts">Gifts</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cart">
+        🛒 Cart:
+        <span id="count">0</span>
+    </div>
+
+</header>
+
+<section class="hero" id="home">
+
+    <h1>
+        Make Every Moment
+        <span>Beautiful</span> 🌹
+    </h1>
+
+    <p>
+        Fresh flowers and thoughtful gifts
+        delivered with love.
+    </p>
+
+    <button class="btn"
+    onclick="document.getElementById('products').scrollIntoView()">
+        Shop Now
+    </button>
+
+</section>
+
+<section class="section" id="products">
+
+    <div class="title">
+        <h2>Our Best Sellers</h2>
+        <p>Beautiful flowers for every occasion</p>
+    </div>
+
+    <div class="categories">
+        <button onclick="filter('all')">All</button>
+        <button onclick="filter('flower')">Flowers</button>
+        <button onclick="filter('gift')">Gifts</button>
+    </div>
+
+    <div class="products">
+
+        <div class="product flower">
+            <div class="product-image">🌹</div>
+            <div class="product-info">
+                <h3>Red Rose Bouquet</h3>
+                <p>12 beautiful fresh roses</p>
+                <div class="price">₹799</div>
+                <button onclick="add()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product flower">
+            <div class="product-image">🌷</div>
+            <div class="product-info">
+                <h3>Pink Tulip Bouquet</h3>
+                <p>Fresh premium tulips</p>
+                <div class="price">₹999</div>
+                <button onclick="add()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product flower">
+            <div class="product-image">💐</div>
+            <div class="product-info">
+                <h3>Mixed Flower Basket</h3>
+                <p>Colorful seasonal flowers</p>
+                <div class="price">₹1,299</div>
+                <button onclick="add()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product gift">
+            <div class="product-image">🎁</div>
+            <div class="product-info">
+                <h3>Premium Gift Box</h3>
+                <p>Chocolate and surprise gifts</p>
+                <div class="price">₹1,499</div>
+                <button onclick="add()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product gift">
+            <div class="product-image">🧸</div>
+            <div class="product-info">
+                <h3>Teddy Bear Gift</h3>
+                <p>Soft and adorable teddy</p>
+                <div class="price">₹899</div>
+                <button onclick="add()">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product gift">
+            <div class="product-image">🍫</div>
+            <div class="product-info">
+                <h3>Chocolate Hamper</h3>
+                <p>Premium chocolate collection</p>
+                <div class="price">₹699</div>
+                <button onclick="add()">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer id="contact">
+
+    <h2>🌸 Bloom & Gift</h2>
+
+    <p>📞 +91 98765 43210</p>
+    <p>✉️ hello@bloomgift.com</p>
+    <p>© 2026 Bloom & Gift</p>
+
+</footer>
+
+<script>
+
+let count=0;
+
+function add(){
+
+    count++;
+
+    document.getElementById("count").innerText=count;
+
+    alert("Product added to cart! 🌸");
+
+}
+
+function filter(type){
+
+    let products=document.querySelectorAll(".product");
+
+    products.forEach(function(product){
+
+        if(type==="all"){
+            product.style.display="block";
+        }
+        else if(product.classList.contains(type)){
+            product.style.display="block";
+        }
+        else{
+            product.style.display="none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

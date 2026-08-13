@@ -1,0 +1,1879 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Waste Management System</title>
+
+<style>
+
+/* ---------- BASIC ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8f6;
+    color: #333;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    background: linear-gradient(135deg, #087f5b, #20c997);
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d8f3dc;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    height: 420px;
+
+    background:
+    linear-gradient(#0008, #0008),
+    url("https://images.unsplash.com/photo-1532996122724-e3c354a0b15b")
+    center/cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+}
+
+.hero h1 {
+    font-size: 45px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin: 15px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn {
+    background: #087f5b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #055d42;
+}
+
+/* ---------- SECTIONS ---------- */
+
+section {
+    padding: 50px 7%;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h2 {
+    color: #087f5b;
+    font-size: 30px;
+}
+
+/* ---------- CARDS ---------- */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    width: 280px;
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px #0002;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card h3 {
+    color: #087f5b;
+    margin-bottom: 12px;
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* ---------- DASHBOARD ---------- */
+
+.dashboard {
+    background: #e8f7f1;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h2 {
+    font-size: 35px;
+    color: #087f5b;
+}
+
+/* ---------- FORM ---------- */
+
+.form-box {
+    max-width: 600px;
+    margin: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px #0002;
+}
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin: 8px 0 15px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+textarea {
+    height: 100px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* ---------- TABLE ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: white;
+
+    box-shadow: 0 5px 20px #0002;
+}
+
+th {
+    background: #087f5b;
+    color: white;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+
+    border-bottom: 1px solid #ddd;
+}
+
+/* ---------- STATUS ---------- */
+
+.status {
+    background: #d8f3dc;
+    color: #087f5b;
+
+    padding: 5px 10px;
+
+    border-radius: 15px;
+
+    font-weight: bold;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background: #064e3b;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:700px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        ♻️ Smart Waste Management
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#public">Public</a>
+
+        <a href="#driver">Driver</a>
+
+        <a href="#admin">Admin</a>
+
+        <a href="#complaint">Complaint</a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<div class="hero" id="home">
+
+    <div>
+
+        <h1>Smart Waste Management ♻️</h1>
+
+        <p>
+            Cleaner Cities • Smarter Routes • Better Future
+        </p>
+
+        <button class="btn"
+        onclick="document.getElementById('complaint')
+        .scrollIntoView()">
+
+            Report Waste
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🌱 Our Waste Management System</h2>
+
+        <p>
+            Smart technology for efficient garbage collection
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="icon">🗑️</div>
+
+            <h3>Waste Segregation</h3>
+
+            <p>
+                Separate waste into dry, wet and recyclable
+                categories.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚛</div>
+
+            <h3>Smart Collection</h3>
+
+            <p>
+                Monitor garbage bins and schedule collection
+                efficiently.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🗺️</div>
+
+            <h3>Smart Transportation</h3>
+
+            <p>
+                Generate efficient routes for garbage trucks.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📊</div>
+
+            <h3>Data Analytics</h3>
+
+            <p>
+                Analyze garbage collection data and generate
+                reports.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PUBLIC DASHBOARD ================= -->
+
+<section id="public" class="dashboard">
+
+    <div class="title">
+
+        <h2>👤 General Public Dashboard</h2>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card stat">
+
+            <div class="icon">🗑️</div>
+
+            <h2>120</h2>
+
+            <p>Garbage Bins</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">🚛</div>
+
+            <h2>18</h2>
+
+            <p>Active Trucks</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">♻️</div>
+
+            <h2>85%</h2>
+
+            <p>Collection Rate</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">🌱</div>
+
+            <h2>92%</h2>
+
+            <p>Clean Area</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PUBLIC REGISTER ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>👤 Public Registration</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Full Name</label>
+
+        <input type="text"
+        id="publicName"
+        placeholder="Enter your name">
+
+
+        <label>Email</label>
+
+        <input type="email"
+        id="publicEmail"
+        placeholder="Enter your email">
+
+
+        <label>Phone Number</label>
+
+        <input type="tel"
+        id="publicPhone"
+        placeholder="Enter phone number">
+
+
+        <label>Password</label>
+
+        <input type="password"
+        id="publicPassword"
+        placeholder="Create password">
+
+
+        <button class="btn"
+        onclick="registerPublic()">
+
+            Register
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PUBLIC LOGIN ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🔐 Public Login</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Email</label>
+
+        <input type="email"
+        id="loginEmail"
+        placeholder="Enter email">
+
+
+        <label>Password</label>
+
+        <input type="password"
+        id="loginPassword"
+        placeholder="Enter password">
+
+
+        <button class="btn"
+        onclick="publicLogin()">
+
+            Login
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= COMPLAINT ================= -->
+
+<section id="complaint">
+
+    <div class="title">
+
+        <h2>📢 Register Complaint</h2>
+
+        <p>
+            Report overflowing or uncollected garbage
+        </p>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Your Name</label>
+
+        <input type="text"
+        id="complaintName"
+        placeholder="Enter your name">
+
+
+        <label>Location</label>
+
+        <input type="text"
+        id="location"
+        placeholder="Enter garbage location">
+
+
+        <label>Complaint Type</label>
+
+        <select id="complaintType">
+
+            <option value="">
+                Select complaint
+            </option>
+
+            <option>
+                Garbage Not Collected
+            </option>
+
+            <option>
+                Overflowing Bin
+            </option>
+
+            <option>
+                Damaged Bin
+            </option>
+
+            <option>
+                Illegal Dumping
+            </option>
+
+        </select>
+
+
+        <label>Description</label>
+
+        <textarea
+        id="description"
+        placeholder="Describe your complaint">
+        </textarea>
+
+
+        <button class="btn"
+        onclick="submitComplaint()">
+
+            Submit Complaint
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MY COMPLAINT ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>📋 My Complaints</h2>
+
+    </div>
+
+
+    <table>
+
+        <tr>
+
+            <th>Complaint ID</th>
+
+            <th>Location</th>
+
+            <th>Complaint</th>
+
+            <th>Status</th>
+
+        </tr>
+
+
+        <tr>
+
+            <td>C001</td>
+
+            <td>Chennai Main Road</td>
+
+            <td>Overflowing Bin</td>
+
+            <td>
+                <span class="status">
+                    Resolved
+                </span>
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>C002</td>
+
+            <td>Anna Nagar</td>
+
+            <td>Garbage Not Collected</td>
+
+            <td>
+                <span class="status">
+                    In Progress
+                </span>
+            </td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+<!-- ================= DRIVER ================= -->
+
+<section id="driver" class="dashboard">
+
+    <div class="title">
+
+        <h2>🚛 Driver Dashboard</h2>
+
+        <p>
+            Manage daily garbage collection
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card stat">
+
+            <div class="icon">🗑️</div>
+
+            <h2>12</h2>
+
+            <p>Bins Assigned</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">📍</div>
+
+            <h2>8</h2>
+
+            <p>Bins Collected</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">⚖️</div>
+
+            <h2>2.5T</h2>
+
+            <p>Garbage Load</p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DRIVER LOGIN ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🚛 Driver Login</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Driver ID</label>
+
+        <input type="text"
+        id="driverID"
+        placeholder="Enter driver ID">
+
+
+        <label>Password</label>
+
+        <input type="password"
+        id="driverPassword"
+        placeholder="Enter password">
+
+
+        <button class="btn"
+        onclick="driverLogin()">
+
+            Driver Login
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DAILY WORK ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>📅 Daily Work Updates</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Driver Name</label>
+
+        <input type="text"
+        id="driverName"
+        placeholder="Enter driver name">
+
+
+        <label>Assigned Area</label>
+
+        <select id="area">
+
+            <option value="">
+                Select Area
+            </option>
+
+            <option>
+                Anna Nagar
+            </option>
+
+            <option>
+                T Nagar
+            </option>
+
+            <option>
+                Velachery
+            </option>
+
+            <option>
+                Tambaram
+            </option>
+
+        </select>
+
+
+        <label>Work Status</label>
+
+        <select id="workStatus">
+
+            <option>
+                Started
+            </option>
+
+            <option>
+                In Progress
+            </option>
+
+            <option>
+                Completed
+            </option>
+
+        </select>
+
+
+        <button class="btn"
+        onclick="updateWork()">
+
+            Update Work
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= BEST ROUTE ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🗺️ Choose Best Route</h2>
+
+        <p>
+            Select an efficient garbage collection route
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>Route A</h3>
+
+            <p>📍 Anna Nagar → T Nagar</p>
+
+            <p>📏 Distance: 12 KM</p>
+
+            <p>⏱️ Time: 30 Minutes</p>
+
+            <button class="btn"
+            onclick="chooseRoute('Route A')">
+
+                Choose Route
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Route B</h3>
+
+            <p>📍 T Nagar → Velachery</p>
+
+            <p>📏 Distance: 15 KM</p>
+
+            <p>⏱️ Time: 35 Minutes</p>
+
+            <button class="btn"
+            onclick="chooseRoute('Route B')">
+
+                Choose Route
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Route C</h3>
+
+            <p>📍 Velachery → Tambaram</p>
+
+            <p>📏 Distance: 18 KM</p>
+
+            <p>⏱️ Time: 40 Minutes</p>
+
+            <button class="btn"
+            onclick="chooseRoute('Route C')">
+
+                Choose Route
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= GARBAGE LOAD ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>⚖️ Update Garbage Load</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Driver Name</label>
+
+        <input type="text"
+        id="loadDriver"
+        placeholder="Enter driver name">
+
+
+        <label>Collected Garbage (KG)</label>
+
+        <input type="number"
+        id="garbageLoad"
+        placeholder="Enter garbage load">
+
+
+        <label>Waste Type</label>
+
+        <select id="wasteType">
+
+            <option>Wet Waste</option>
+
+            <option>Dry Waste</option>
+
+            <option>Recyclable Waste</option>
+
+        </select>
+
+
+        <button class="btn"
+        onclick="updateLoad()">
+
+            Update Load
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ADMIN ================= -->
+
+<section id="admin" class="dashboard">
+
+    <div class="title">
+
+        <h2>👨‍💼 Administrator Dashboard</h2>
+
+        <p>
+            Manage the complete waste management system
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card stat">
+
+            <div class="icon">🗑️</div>
+
+            <h2>120</h2>
+
+            <p>Total Garbage Bins</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">🚛</div>
+
+            <h2>25</h2>
+
+            <p>Total Drivers</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">📢</div>
+
+            <h2>32</h2>
+
+            <p>Complaints</p>
+
+        </div>
+
+
+        <div class="card stat">
+
+            <div class="icon">📊</div>
+
+            <h2>85%</h2>
+
+            <p>Collection Efficiency</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ADMIN LOGIN ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🔐 Administrator Login</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Admin Username</label>
+
+        <input type="text"
+        id="adminUser"
+        placeholder="Enter username">
+
+
+        <label>Password</label>
+
+        <input type="password"
+        id="adminPassword"
+        placeholder="Enter password">
+
+
+        <button class="btn"
+        onclick="adminLogin()">
+
+            Admin Login
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CREATE BIN ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🗑️ Create Garbage Bin</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Bin ID</label>
+
+        <input type="text"
+        id="binID"
+        placeholder="Example: BIN101">
+
+
+        <label>Location</label>
+
+        <input type="text"
+        id="binLocation"
+        placeholder="Enter bin location">
+
+
+        <label>Bin Type</label>
+
+        <select id="binType">
+
+            <option>Wet Waste</option>
+
+            <option>Dry Waste</option>
+
+            <option>Recyclable Waste</option>
+
+        </select>
+
+
+        <button class="btn"
+        onclick="createBin()">
+
+            Create Bin
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MANAGE BINS ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🛠️ Manage Garbage Bins</h2>
+
+    </div>
+
+
+    <table>
+
+        <tr>
+
+            <th>Bin ID</th>
+
+            <th>Location</th>
+
+            <th>Type</th>
+
+            <th>Status</th>
+
+            <th>Action</th>
+
+        </tr>
+
+
+        <tr>
+
+            <td>BIN101</td>
+
+            <td>Anna Nagar</td>
+
+            <td>Wet Waste</td>
+
+            <td>
+                <span class="status">
+                    Active
+                </span>
+            </td>
+
+            <td>
+
+                <button class="btn"
+                onclick="alert('Bin updated!')">
+
+                    Update
+
+                </button>
+
+                <button class="btn"
+                onclick="deleteBin()">
+
+                    Delete
+
+                </button>
+
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>BIN102</td>
+
+            <td>T Nagar</td>
+
+            <td>Dry Waste</td>
+
+            <td>
+                <span class="status">
+                    Active
+                </span>
+            </td>
+
+            <td>
+
+                <button class="btn"
+                onclick="alert('Bin updated!')">
+
+                    Update
+
+                </button>
+
+                <button class="btn"
+                onclick="deleteBin()">
+
+                    Delete
+
+                </button>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+<!-- ================= ASSIGN ROUTE ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>🚛 Assign Best Route</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Select Driver</label>
+
+        <select id="assignDriver">
+
+            <option>
+                Ravi
+            </option>
+
+            <option>
+                Kumar
+            </option>
+
+            <option>
+                Arjun
+            </option>
+
+        </select>
+
+
+        <label>Select Route</label>
+
+        <select id="assignRoute">
+
+            <option>
+                Route A
+            </option>
+
+            <option>
+                Route B
+            </option>
+
+            <option>
+                Route C
+            </option>
+
+        </select>
+
+
+        <button class="btn"
+        onclick="assignRoute()">
+
+            Assign Route
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MANAGE DRIVER ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>👨‍✈️ Manage Driver</h2>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <label>Driver Name</label>
+
+        <input type="text"
+        id="newDriver"
+        placeholder="Enter driver name">
+
+
+        <label>Phone Number</label>
+
+        <input type="tel"
+        id="driverPhone"
+        placeholder="Enter phone number">
+
+
+        <label>Vehicle Number</label>
+
+        <input type="text"
+        id="vehicleNumber"
+        placeholder="Example: TN01AB1234">
+
+
+        <button class="btn"
+        onclick="addDriver()">
+
+            Add Driver
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= GARBAGE REPORT ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>📊 Garbage Collection Report</h2>
+
+    </div>
+
+
+    <table>
+
+        <tr>
+
+            <th>Date</th>
+
+            <th>Area</th>
+
+            <th>Garbage Collected</th>
+
+            <th>Efficiency</th>
+
+        </tr>
+
+
+        <tr>
+
+            <td>08-08-2026</td>
+
+            <td>Anna Nagar</td>
+
+            <td>2.5 Tons</td>
+
+            <td>90%</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>08-08-2026</td>
+
+            <td>T Nagar</td>
+
+            <td>3.2 Tons</td>
+
+            <td>94%</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>08-08-2026</td>
+
+            <td>Velachery</td>
+
+            <td>2.8 Tons</td>
+
+            <td>88%</td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+<!-- ================= PUBLIC COMPLAINTS ADMIN ================= -->
+
+<section>
+
+    <div class="title">
+
+        <h2>📢 Public Complaints</h2>
+
+    </div>
+
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Public User</th>
+
+            <th>Location</th>
+
+            <th>Complaint</th>
+
+            <th>Status</th>
+
+        </tr>
+
+
+        <tr>
+
+            <td>C001</td>
+
+            <td>Rahul</td>
+
+            <td>Anna Nagar</td>
+
+            <td>Overflowing Bin</td>
+
+            <td>
+                <span class="status">
+                    Resolved
+                </span>
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>C002</td>
+
+            <td>Anu</td>
+
+            <td>T Nagar</td>
+
+            <td>Garbage Not Collected</td>
+
+            <td>
+                <span class="status">
+                    Pending
+                </span>
+            </td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>♻️ Smart Waste Management System</h3>
+
+    <p>
+        Clean City • Smart Technology • Green Future
+    </p>
+
+    <p>
+        © 2026 Smart Waste Management
+    </p>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* PUBLIC REGISTER */
+
+function registerPublic() {
+
+    let name =
+    document.getElementById("publicName").value;
+
+    let email =
+    document.getElementById("publicEmail").value;
+
+    let phone =
+    document.getElementById("publicPhone").value;
+
+    let password =
+    document.getElementById("publicPassword").value;
+
+
+    if(name == "" ||
+       email == "" ||
+       phone == "" ||
+       password == "") {
+
+        alert("⚠️ Please fill all fields!");
+
+    }
+
+    else {
+
+        alert(
+            "🎉 Registration Successful!\n" +
+            "Welcome " + name
+        );
+
+    }
+
+}
+
+
+/* PUBLIC LOGIN */
+
+function publicLogin() {
+
+    let email =
+    document.getElementById("loginEmail").value;
+
+    let password =
+    document.getElementById("loginPassword").value;
+
+
+    if(email == "" || password == "") {
+
+        alert("⚠️ Enter email and password!");
+
+    }
+
+    else {
+
+        alert("✅ Public Login Successful!");
+
+    }
+
+}
+
+
+/* COMPLAINT */
+
+function submitComplaint() {
+
+    let name =
+    document.getElementById("complaintName").value;
+
+    let location =
+    document.getElementById("location").value;
+
+    let type =
+    document.getElementById("complaintType").value;
+
+
+    if(name == "" ||
+       location == "" ||
+       type == "") {
+
+        alert("⚠️ Please fill complaint details!");
+
+    }
+
+    else {
+
+        alert(
+            "📢 Complaint Registered Successfully!\n\n" +
+            "Complaint ID: C003"
+        );
+
+    }
+
+}
+
+
+/* DRIVER LOGIN */
+
+function driverLogin() {
+
+    let id =
+    document.getElementById("driverID").value;
+
+    let password =
+    document.getElementById("driverPassword").value;
+
+
+    if(id == "" || password == "") {
+
+        alert("⚠️ Enter Driver ID and Password!");
+
+    }
+
+    else {
+
+        alert("🚛 Driver Login Successful!");
+
+    }
+
+}
+
+
+/* DAILY WORK */
+
+function updateWork() {
+
+    let driver =
+    document.getElementById("driverName").value;
+
+    let area =
+    document.getElementById("area").value;
+
+
+    if(driver == "" || area == "") {
+
+        alert("⚠️ Fill work details!");
+
+    }
+
+    else {
+
+        alert(
+            "✅ Work Updated Successfully!\n" +
+            "Driver: " + driver +
+            "\nArea: " + area
+        );
+
+    }
+
+}
+
+
+/* ROUTE */
+
+function chooseRoute(route) {
+
+    alert(
+        "🗺️ " + route +
+        " selected successfully!"
+    );
+
+}
+
+
+/* LOAD */
+
+function updateLoad() {
+
+    let driver =
+    document.getElementById("loadDriver").value;
+
+    let load =
+    document.getElementById("garbageLoad").value;
+
+
+    if(driver == "" || load == "") {
+
+        alert("⚠️ Enter driver and garbage load!");
+
+    }
+
+    else {
+
+        alert(
+            "⚖️ Garbage Load Updated!\n\n" +
+            "Driver: " + driver +
+            "\nLoad: " + load + " KG"
+        );
+
+    }
+
+}
+
+
+/* ADMIN LOGIN */
+
+function adminLogin() {
+
+    let user =
+    document.getElementById("adminUser").value;
+
+    let password =
+    document.getElementById("adminPassword").value;
+
+
+    if(user == "" || password == "") {
+
+        alert("⚠️ Enter admin login details!");
+
+    }
+
+    else {
+
+        alert("🔐 Admin Login Successful!");
+
+    }
+
+}
+
+
+/* CREATE BIN */
+
+function createBin() {
+
+    let id =
+    document.getElementById("binID").value;
+
+    let location =
+    document.getElementById("binLocation").value;
+
+
+    if(id == "" || location == "") {
+
+        alert("⚠️ Enter bin details!");
+
+    }
+
+    else {
+
+        alert(
+            "🗑️ Garbage Bin Created!\n" +
+            "Bin ID: " + id +
+            "\nLocation: " + location
+        );
+
+    }
+
+}
+
+
+/* DELETE BIN */
+
+function deleteBin() {
+
+    if(confirm("Are you sure you want to delete this bin?")) {
+
+        alert("🗑️ Garbage bin deleted!");
+
+    }
+
+}
+
+
+/* ASSIGN ROUTE */
+
+function assignRoute() {
+
+    let driver =
+    document.getElementById("assignDriver").value;
+
+    let route =
+    document.getElementById("assignRoute").value;
+
+
+    alert(
+        "🚛 Route Assigned Successfully!\n\n" +
+        "Driver: " + driver +
+        "\nRoute: " + route
+    );
+
+}
+
+
+/* ADD DRIVER */
+
+function addDriver() {
+
+    let name =
+    document.getElementById("newDriver").value;
+
+    let vehicle =
+    document.getElementById("vehicleNumber").value;
+
+
+    if(name == "" || vehicle == "") {
+
+        alert("⚠️ Enter driver details!");
+
+    }
+
+    else {
+
+        alert(
+            "👨‍✈️ Driver Added Successfully!\n" +
+            "Name: " + name +
+            "\nVehicle: " + vehicle
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
+```

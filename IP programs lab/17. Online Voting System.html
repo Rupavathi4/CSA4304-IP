@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>VoteSecure - Online Voting</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+}
+
+header{
+background:#312e81;
+color:white;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.logo span{
+color:#a5b4fc;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+.hero{
+background:linear-gradient(120deg,#e0e7ff,#f5f3ff);
+padding:70px 8%;
+text-align:center;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero span{
+color:#4f46e5;
+}
+
+.hero p{
+color:#64748b;
+font-size:18px;
+}
+
+.section{
+padding:60px 7%;
+}
+
+.title{
+text-align:center;
+margin-bottom:35px;
+}
+
+.title h2{
+font-size:34px;
+}
+
+.candidates{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+}
+
+.candidate{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 20px #00000010;
+}
+
+.photo{
+width:90px;
+height:90px;
+margin:auto;
+border-radius:50%;
+background:#e0e7ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:45px;
+margin-bottom:15px;
+}
+
+.candidate p{
+color:#64748b;
+margin:10px;
+}
+
+.vote{
+width:100%;
+padding:12px;
+border:0;
+background:#4f46e5;
+color:white;
+border-radius:7px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.form-area{
+background:#e0e7ff;
+}
+
+.form{
+max-width:550px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:15px;
+}
+
+.form h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.group{
+margin-bottom:15px;
+}
+
+.group label{
+display:block;
+font-weight:bold;
+margin-bottom:7px;
+}
+
+.group input{
+width:100%;
+padding:12px;
+border:1px solid #cbd5e1;
+border-radius:7px;
+}
+
+.submit{
+width:100%;
+padding:14px;
+border:0;
+background:#312e81;
+color:white;
+border-radius:7px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.result{
+margin-top:20px;
+text-align:center;
+padding:15px;
+background:#eef2ff;
+border-radius:8px;
+}
+
+footer{
+background:#1e1b4b;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+footer p{
+color:#c7d2fe;
+margin:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Vote<span>Secure</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#candidates">Candidates</a>
+<a href="#vote">Vote</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<h1>
+Your Vote,
+<span>Your Voice</span> 🗳️
+</h1>
+
+<p>
+A simple online voting demonstration system.
+</p>
+
+</section>
+
+<section class="section" id="candidates">
+
+<div class="title">
+<h2>Choose Your Candidate</h2>
+<p>Select one candidate to cast your vote.</p>
+</div>
+
+<div class="candidates">
+
+<div class="candidate">
+
+<div class="photo">👨‍💼</div>
+
+<h3>Candidate A</h3>
+
+<p>Progress & Development</p>
+
+<button class="vote"
+onclick="selectCandidate('Candidate A')">
+Vote
+</button>
+
+</div>
+
+<div class="candidate">
+
+<div class="photo">👩‍💼</div>
+
+<h3>Candidate B</h3>
+
+<p>Education & Innovation</p>
+
+<button class="vote"
+onclick="selectCandidate('Candidate B')">
+Vote
+</button>
+
+</div>
+
+<div class="candidate">
+
+<div class="photo">👨‍💼</div>
+
+<h3>Candidate C</h3>
+
+<p>Jobs & Technology</p>
+
+<button class="vote"
+onclick="selectCandidate('Candidate C')">
+Vote
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section form-area" id="vote">
+
+<div class="form">
+
+<h2>🗳️ Voter Verification</h2>
+
+<div class="group">
+
+<label>Voter Name</label>
+
+<input id="name"
+placeholder="Enter your name">
+
+</div>
+
+<div class="group">
+
+<label>Voter ID</label>
+
+<input id="voterid"
+placeholder="Enter voter ID">
+
+</div>
+
+<button class="submit"
+onclick="castVote()">
+
+Cast Vote
+
+</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h2>VoteSecure</h2>
+
+<p>🗳️ Secure Digital Voting</p>
+<p>📞 +91 98765 43210</p>
+<p>© 2026 VoteSecure</p>
+
+</footer>
+
+<script>
+
+let selected="";
+
+function selectCandidate(name){
+
+selected=name;
+
+alert(
+"You selected "+name+
+". Please complete voter verification below."
+);
+
+document.getElementById("vote")
+.scrollIntoView();
+
+}
+
+function castVote(){
+
+let name=
+document.getElementById("name").value;
+
+let id=
+document.getElementById("voterid").value;
+
+if(name==="" || id===""){
+
+alert("Please enter voter details.");
+
+return;
+
+}
+
+if(selected===""){
+
+alert("Please select a candidate first.");
+
+return;
+
+}
+
+document.getElementById("result").innerHTML=
+
+"✅ Vote submitted successfully!<br><br>"+
+"Candidate: <strong>"+selected+
+"</strong><br>"+
+"Voter ID: "+id;
+
+}
+
+</script>
+
+</body>
+</html>
