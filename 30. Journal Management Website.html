@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Journal</title>
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#fff7ed;color:#292524}
+header{background:#9a3412;color:white;padding:20px 8%;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{text-align:center;padding:70px;background:#ffedd5}
+.hero h1{font-size:50px;color:#9a3412}
+section{padding:55px 8%}
+.journal{max-width:700px;margin:auto;background:white;padding:30px;border-radius:15px;box-shadow:0 5px 20px #0001}
+input,textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #ddd;border-radius:7px}
+textarea{height:180px}
+button{background:#ea580c;color:white;border:0;padding:13px;width:100%;border-radius:7px}
+.entries{max-width:900px;margin:auto}
+.entry{background:white;padding:25px;margin:15px 0;border-radius:12px;box-shadow:0 3px 15px #0001}
+.entry h3{color:#c2410c}
+footer{background:#431407;color:white;text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">📖 MyJournal</div>
+<nav><a href="#home">Home</a><a href="#write">Write</a><a href="#entries">Entries</a></nav>
+</header>
+
+<section class="hero" id="home">
+<h1>My Personal Journal</h1>
+<p>Write. Remember. Reflect.</p>
+</section>
+
+<section id="write">
+<div class="journal">
+<h2>✍️ Write New Entry</h2>
+<input id="title" placeholder="Entry Title">
+<textarea id="content" placeholder="Write your thoughts..."></textarea>
+<button onclick="saveEntry()">Save Entry</button>
+</div>
+</section>
+
+<section id="entries">
+<div class="entries">
+<h2>Journal Entries</h2>
+<div id="list">
+<div class="entry">
+<h3>My First Entry</h3>
+<p>Today was a wonderful day!</p>
+<small>August 13, 2026</small>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<h2>MyJournal 📖</h2>
+<p>Your thoughts, your memories.</p>
+</footer>
+
+<script>
+function saveEntry(){
+let title=document.getElementById("title").value;
+let content=document.getElementById("content").value;
+if(!title||!content){alert("Fill all fields");return}
+let div=document.createElement("div");
+div.className="entry";
+div.innerHTML="<h3>"+title+"</h3><p>"+content+"</p><small>Today</small>";
+document.getElementById("list").prepend(div);
+document.getElementById("title").value="";
+document.getElementById("content").value="";
+alert("Journal entry saved!");
+}
+</script>
+
+</body>
+</html>
